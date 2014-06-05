@@ -64,7 +64,7 @@ require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_
     gameMethods.draw(ball, rightPaddle, leftPaddle);
     gameMethods.update(ball, rightPaddle, leftPaddle, true);
     function tick () {
-      gameMethods.tick();
+      gameMethods.tick(ball, rightPaddle, leftPaddle);
     }
     
     var mainLoop = setInterval(tick, constants.MILLESECONDS / constants.FPS);
