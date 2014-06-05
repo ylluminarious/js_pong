@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<!-- Grab sources for CSS and jQuery -->
+<head>
+    <title>Pong Game</title>
+    <link rel='stylesheet' href='style.css'/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Title text -->
+    <h1 id="header">Pong</h1>
+    <h4 id="author">by <a href="http://www.codecademy.com/">Codecademy</a> user <a href="http://www.codecademy.com/ylluminarious">Codicus Wings</a></h4>
+    <!-- Instructions box -->
+    <center>
+        <div id="instructions_for_one_player">
+            <center>
+                <h3>Instructions for single player:</h3>
+            </center>
+            <ol>
+                <li>Press the spacebar to start the game</li>
+                <li>Keys to move up and down:</li>
+                <ul>
+                    <li>W and S</li>
+                    <li>&uarr; and &darr;</li>
+                    <li>A and Z</li>
+                    <li>' (apostrophe) and / (forward slash)</li>
+                </ul>
+                <li>Score 10 points to win. Good luck!</li>
+            </ol>
+        </div>
+        <div id="instructions_for_two_player">
+            <center>
+                <h3>Instructions for double player:</h3>
+            </center>
+            <ol>
+                <li>Press the spacebar to start the game</li>
+                <li>Keys to move up and down:</li>
+                <ul>
+                    <li>Left player uses A and Z</li>
+                    <li>Right player uses ' (apostrophe) and / (forward slash)</li>
+                </ul>
+                <li>Score 10 points to win. Good luck!</li>
+            </ol>
+        </div>
+    </center>
+    <center>
+        <!-- Pause button and play button -->
+        <div id="buttons_container">
+            <div id="pause_button" title="Pause/Resume">
+                &#10074;&#10074;
+            </div>
+            <div id="restart_button" title="Restart the round">
+                &#8634; <span id="restart_text">Restart</span>
+            </div>
+        </div>
+        <!-- The game canvas -->
+        <canvas id="field" height="500" width="700">
+            This text is displayed if your browser doesn't support the HTML5 Canvas element.
+        </canvas>
+    </center>
+    <script type="text/javascript" data-main="js/main.js" src="js/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+#field {
+    border-style: solid;
+    border-color: white;
+    background-color: black;
+    border-radius: 5px;
+}
+#header {
+    font-family: Courier;
+    cursor: default;
+    text-align: center;
+}
+#author {
+    cursor: default;
+    font-family: Courier;
+    text-align: center;
+}
+#instructions_for_one_player {
+    font-family: Verdana;
+    background-color: #6699CC;
+    border-radius: 5px;
+    width: 250px;
+    text-align: left;
+    display: inline-block;
+}
+#instructions_for_two_player {
+    font-family: Verdana;
+    background-color: #2B966D;
+    border-radius: 5px;
+    width: 250px;
+    text-align: left;
+    display: inline-block;
+}
+#pause_button {
+    cursor: pointer;
+    border-style: solid;
+    padding: 5px;
+    border-width: 1px;
+    border-radius: 5px;
+    display: inline-block;
+}
+#restart_button {
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 5px;
+    float: right;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#restart_text {
+    font-family: Courier;
+}
+#buttons_container {
+    background-color: black;
+    color: white;
+    border-style: solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-color: white;
+    width: 700px;
+    text-align: right;
+    border-radius: 5px;
+}
+a:first-child {
+    text-decoration: none;
+    color: blue;
+}
+a:nth-child(2) {
+    text-decoration: none;
+    color: lightblue;
+}
+a:hover {
+    text-decoration: underline;
+}
+body {
+    background-color: gray;
+}
