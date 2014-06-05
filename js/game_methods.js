@@ -45,8 +45,8 @@ define(["paddle_class", "ball_class", "constants"], function (Paddle, Ball, cons
     },
     tick: function (ball, rightPaddle, leftPaddle) {
       if (!constants.PAUSED) {
-        gameMethods.draw();
-        gameMethods.update();
+        gameMethods.draw(ball, rightPaddle, leftPaddle);
+        gameMethods.update(ball, rightPaddle, leftPaddle);
       }
     }
   };
