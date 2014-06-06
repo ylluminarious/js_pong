@@ -17,6 +17,7 @@ require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_
       constants.LEFT_VERTICAL_SCORE_POS,
       constants.COLOR
     );
+    
     onkeydown = function (input) {
       // IE code
       input = input || window.event;
@@ -45,6 +46,7 @@ require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_
         }
       }
     };
+    
     onkeyup = function (input) {
       // IE code
       input = input || window.event;
@@ -61,10 +63,9 @@ require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_
       }
     };
     
-    gameMethods.draw(ball, rightPaddle, leftPaddle);
-    gameMethods.update(ball, rightPaddle, leftPaddle, true);
+    
     function tick () {
-      gameMethods.tick(ball, rightPaddle, leftPaddle);
+      gameMethods.tick(ball, rightPaddle, leftPaddle, constants.IS_AI);
     }
     
     var mainLoop = setInterval(tick, constants.MILLESECONDS / constants.FPS);
@@ -77,14 +78,19 @@ require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_
     var rightPaddle = new Paddle(
       constants.RIGHT_PADDLE_X_POS,
       constants.RIGHT_PADDLE_Y_POS,
+      constants.RIGHT_HORIZONTAL_SCORE_POS,
+      constants.RIGHT_VERTICAL_SCORE_POS,
       constants.COLOR
     );
     
     var leftPaddle = new Paddle(
       constants.LEFT_PADDLE_X_POS,
       constants.LEFT_PADDLE_Y_POS,
+      constants.LEFT_HORIZONTAL_SCORE_POS,
+      constants.LEFT_VERTICAL_SCORE_POS,
       constants.COLOR
     );
+    
     onkeydown = function (input) {
       // IE code
       input = input || window.event;
@@ -156,21 +162,10 @@ require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_
       }
     };
     
-    function draw () {
-      constants.CONTEXT.clearRect(constants.ORIGIN, constants.ORIGIN, constants.FIELD.width, constants.FIELD.height);
-      ball.draw();
-      rightPaddle.draw();
-      leftPaddle.draw();
-    }
-    function update () {
-      ball.updatePosition(rightPaddle, leftPaddle);
-      rightPaddle.updatePosition();
-      leftPaddle.updatePosition();
-    }
     function tick () {
-      update();
-      draw();
+      gameMethods.tick(ball, rightPaddle, leftPaddle, constants.IS_NOT_AI);
     }
+    
     setInterval(tick, constants.MILLESECONDS / constants.FPS);
   }
   onkeydown = function (input) {
