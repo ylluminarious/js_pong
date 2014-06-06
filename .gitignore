@@ -1,4 +1,4 @@
 
+# Ignore Code Kit stuff
 *.codekit
-
-js/min/main-ck.js
+min
