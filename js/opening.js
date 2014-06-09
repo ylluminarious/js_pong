@@ -24,4 +24,7 @@ define(["paddle_class", "ball_class", "game_methods", "constants"], function (Pa
   leftPaddleBeforeGame.draw();
   
   gameMethods.writeText();
+  var opening = new GameMethods(ballBeforeGame, rightPaddleBeforeGame, leftPaddleBeforeGame);
+  opening.draw();
+  opening.writeText();
 });
