@@ -1,6 +1,9 @@
-define(["paddle_class", "ball_class", "constants"], function (Paddle, Ball, constants) {
-  var gameMethods = {
-    draw: function (ball, rightPaddle, leftPaddle) {
+define(["constants"], function (constants) {
+  var GameMethods = function (ball, rightPaddle, leftPaddle, isAI) {
+    this.ball = ball; 
+    this.rightPaddle = rightPaddle;
+    this.leftPaddle = leftPaddle;
+    
     this.onePlayerGame = function () {
       onkeydown = function (input) {
         // IE code
@@ -137,8 +140,8 @@ define(["paddle_class", "ball_class", "constants"], function (Paddle, Ball, cons
       ball.draw();
       rightPaddle.draw();
       leftPaddle.draw();
-    },
-    update: function (ball, rightPaddle, leftPaddle, isAI) {
+    };
+    this.update = function () {
       ball.updatePosition(rightPaddle, leftPaddle);
       rightPaddle.updatePosition();
       if (isAI) {
@@ -146,8 +149,8 @@ define(["paddle_class", "ball_class", "constants"], function (Paddle, Ball, cons
       } else {
         leftPaddle.updatePosition();
       }
-    },
-    writeText: function () {
+    };
+    this.writeText = function () {
       constants.CONTEXT.fillStyle = constants.COLOR;
       constants.CONTEXT.font = constants.TEXT_FONT;
       constants.CONTEXT.fillText("Press \"1\" for single player",
@@ -158,9 +161,9 @@ define(["paddle_class", "ball_class", "constants"], function (Paddle, Ball, cons
       constants.RIGHT_BUTTON_INSTRUCTIONS_X_POS,
       constants.RIGHT_BUTTON_INSTRUCTIONS_Y_POS
     );
-    },
-    victory: function (loopToClear) {
-      gameMethods.writeText();
+    };
+    this.victory = function (loopToClear) {
+      this.writeText();
       clearInterval(loopToClear);
       onkeydown = function (input) {
         // IE code
@@ -168,19 +171,22 @@ define(["paddle_class", "ball_class", "constants"], function (Paddle, Ball, cons
         var key_code = input.keyCode;
         input.preventDefault();
         if (key_code === constants.ONE_CODE || key_code === constants.ONE_NUMPAD_CODE) {
-          onePlayerGame();
+          this.onePlayerGame();
         }
-        if (key_code === TWO_CODE || key_code === TWO_NUMPAD_CODE) {
-          twoPlayerGame();
+        if (key_code === constants.TWO_CODE || key_code === constants.TWO_NUMPAD_CODE) {
+          this.twoPlayerGame();
         }
-      }
-    },
-    tick: function (ball, rightPaddle, leftPaddle, isAI) {
+      };
+    };
+    this.tick = function (loopToClear) {
       if (!constants.PAUSED) {
-        gameMethods.draw(ball, rightPaddle, leftPaddle);
-        gameMethods.update(ball, rightPaddle, leftPaddle, isAI);
+        this.draw();
+        this.update();
+        if (rightPaddle.score === 1 || leftPaddle.score === 1) {
+          this.victory(loopToClear);
+        }
       }
-    }
+    };
   };
-  return gameMethods;
+  return GameMethods;
 });
