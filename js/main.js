@@ -2,6 +2,8 @@ require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_
   
   
   
+  var onePlayer = new GameMethods(ball, rightPaddle, leftPaddle, constants.IS_AI);
+  var twoPlayer = new GameMethods(ball, rightPaddle, leftPaddle, constants.IS_NOT_AI);
   
   onkeydown = function (input) {
     // IE code
@@ -9,9 +11,11 @@ require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_
     var key_code = input.keyCode;
     if (key_code === constants.ONE_CODE || key_code === constants.ONE_NUMPAD_CODE) {
       onePlayerGame();
+      onePlayer.onePlayerGame();
     }
     if (key_code === constants.TWO_CODE || key_code === constants.TWO_NUMPAD_CODE) {
       twoPlayerGame();
+      twoPlayer.twoPlayerGame();
     }
   };
   
