@@ -1,4 +1,5 @@
-require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_methods"], function (Ball, Paddle, opening, buttons, constants, gameMethods) {
+require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_methods"], function (Ball, Paddle, opening, buttons, constants, GameMethods) {
+  var ball = new Ball(constants.COLOR);
   
   
   
