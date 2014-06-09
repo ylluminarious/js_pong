@@ -92,12 +92,18 @@ define(["constants"], function (constants) {
       // ******************** End of ball collision code ********************
  
       // Restart at center when the ball leaves the field and score a point for the paddle that scored.
+      
+      // When the ball goes past the right paddle...
       if ((this.x - this.radius) > constants.RIGHT_WALL) {
+        // ... restart at the center of the field and mark a point for the left paddle.
         this.x = constants.HORIZONTAL_CENTER_OF_FIELD;
         this.y = constants.VERTICAL_CENTER_OF_FIELD;
         leftPaddle.score++;
       }
+      
+      // When the ball goes past the left paddle...
       if ((this.x + this.radius) < constants.LEFT_WALL) {
+        // restart at the center of the field and mark a point for the right paddle.
         this.x = constants.HORIZONTAL_CENTER_OF_FIELD;
         this.y = constants.VERTICAL_CENTER_OF_FIELD;
         rightPaddle.score++;
