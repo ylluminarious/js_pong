@@ -1,9 +1,9 @@
 define(["constants"], function (constants) {
-  return function (x_pos, y_pos, horizontal_score_pos, vertical_score_pos, color) {
-    this.x = x_pos;
-    this.y = y_pos;
-    this.horizontal_score_pos = horizontal_score_pos;
-    this.vertical_score_pos = vertical_score_pos;
+  return function (xPos, yPos, horizontalScorePos, verticalScorePos, color) {
+    this.x = xPos;
+    this.y = yPos;
+    this.horizontalScorePos = horizontalScorePos;
+    this.verticalScorePos = verticalScorePos;
     this.width = constants.PADDLE_WIDTH;
     this.height = constants.PADDLE_HEIGHT;
     this.velocity = constants.STOPPED;
@@ -13,7 +13,7 @@ define(["constants"], function (constants) {
       constants.CONTEXT.fillStyle = this.color;
       constants.CONTEXT.fillRect(this.x, this.y, this.width, this.height);
       constants.CONTEXT.font = "50px Courier";
-      constants.CONTEXT.fillText(this.score, this.horizontal_score_pos, this.vertical_score_pos);
+      constants.CONTEXT.fillText(this.score, this.horizontalScorePos, this.verticalScorePos);
     };
     this.updatePosition = function () {
       this.y += this.velocity / constants.FPS;
