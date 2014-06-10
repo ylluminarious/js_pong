@@ -1,4 +1,5 @@
 define(["constants"], function (constants) {
+define(["constants", "one_player_class"], function (constants, onePlayerGame) {
   var GameMethods = function (ball, rightPaddle, leftPaddle, isAI) {
     this.ball = ball; 
     this.rightPaddle = rightPaddle;
@@ -172,6 +173,8 @@ define(["constants"], function (constants) {
         input.preventDefault();
         if (key_code === constants.ONE_CODE || key_code === constants.ONE_NUMPAD_CODE) {
           this.onePlayerGame();
+          var newGame = new onePlayerGame(ball, rightPaddle, leftPaddle);
+          newGame.loop();
         }
         if (key_code === constants.TWO_CODE || key_code === constants.TWO_NUMPAD_CODE) {
           this.twoPlayerGame();
