@@ -17,15 +17,13 @@ require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_
     constants.COLOR
   );
   
-  var onePlayer = new GameMethods(ball, rightPaddle, leftPaddle, constants.IS_AI);
-  var twoPlayer = new GameMethods(ball, rightPaddle, leftPaddle, constants.IS_NOT_AI);
-  
   onkeydown = function (input) {
     // IE code
     input = input || window.event;
     var key_code = input.keyCode;
     if (key_code === constants.ONE_CODE || key_code === constants.ONE_NUMPAD_CODE) {
-      onePlayer.onePlayerGame();
+      var one = new onePlayerGame(ball, rightPaddle, leftPaddle);
+      one.loop();
     }
     if (key_code === constants.TWO_CODE || key_code === constants.TWO_NUMPAD_CODE) {
       twoPlayer.twoPlayerGame();
