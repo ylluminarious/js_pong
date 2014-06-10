@@ -1,5 +1,5 @@
 define(["constants", "game_methods"], function (constants, GameMethods) {
-  var onePlayerGame = function (ball, rightPaddle, leftPaddle) {
+  var OnePlayerGame = function (ball, rightPaddle, leftPaddle) {
     this.ball = ball;
     this.rightPaddle = rightPaddle;
     this.leftPaddle = leftPaddle;
@@ -55,5 +55,5 @@ define(["constants", "game_methods"], function (constants, GameMethods) {
       }
     };
   };
-  return onePlayerGame;
+  return OnePlayerGame;
 });

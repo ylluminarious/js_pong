@@ -1,4 +1,4 @@
-require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_methods", "one_player_class"], function (Ball, Paddle, opening, buttons, constants, GameMethods, onePlayerGame) {
+require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_methods", "one_player_class"], function (Ball, Paddle, opening, buttons, constants, GameMethods, OnePlayerGame) {
   var ball = new Ball(constants.COLOR);
   
   var rightPaddle = new Paddle(
@@ -22,7 +22,7 @@ require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_
     input = input || window.event;
     var key_code = input.keyCode;
     if (key_code === constants.ONE_CODE || key_code === constants.ONE_NUMPAD_CODE) {
-      var one = new onePlayerGame(ball, rightPaddle, leftPaddle);
+      var one = new OnePlayerGame(ball, rightPaddle, leftPaddle);
       one.loop();
     }
     if (key_code === constants.TWO_CODE || key_code === constants.TWO_NUMPAD_CODE) {
