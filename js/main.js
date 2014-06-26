@@ -1,32 +1,47 @@
-require(["ball_class", "paddle_class", "opening", "buttons", "constants", "game_methods", "one_player_class"], function (Ball, Paddle, opening, buttons, constants, GameMethods, OnePlayerGame) {
-  var ball = new Ball(constants.COLOR);
-  
-  var rightPaddle = new Paddle(
-    constants.RIGHT_PADDLE_X_POS,
-    constants.RIGHT_PADDLE_Y_POS,
-    constants.RIGHT_HORIZONTAL_SCORE_POS,
-    constants.RIGHT_VERTICAL_SCORE_POS,
-    constants.COLOR
-  );
-  
-  var leftPaddle = new Paddle(
-    constants.LEFT_PADDLE_X_POS,
-    constants.LEFT_PADDLE_Y_POS,
-    constants.LEFT_HORIZONTAL_SCORE_POS,
-    constants.LEFT_VERTICAL_SCORE_POS,
-    constants.COLOR
-  );
-  
-  onkeydown = function (input) {
-    // IE code
-    input = input || window.event;
-    var key_code = input.keyCode;
-    if (key_code === constants.ONE_CODE || key_code === constants.ONE_NUMPAD_CODE) {
-      var one = new OnePlayerGame(ball, rightPaddle, leftPaddle);
-      one.loop();
+require(["ball_class", "paddle_class", "opening", "buttons", "global_constants", "global_variables", "game_methods", "one_player_class", "two_player_class", "input_handler"], function (Ball, Paddle, OpeningScene, buttons, gameConstants, gameVariables, GameMethods, OnePlayerGame, TwoPlayerGame, InputHandler) {
+    // Opening scene objects
+    var openingBall = new Ball(gameConstants.COLOR_PRE_GAME);
+    var openingRightPaddle = new Paddle(
+        gameConstants.RIGHT_PADDLE_X_POS,
+        gameConstants.RIGHT_PADDLE_Y_POS,
+        gameConstants.RIGHT_HORIZONTAL_SCORE_POS,
+        gameConstants.RIGHT_VERTICAL_SCORE_POS,
+        gameConstants.COLOR_PRE_GAME
+    );
+    var openingLeftPaddle = new Paddle(
+        gameConstants.LEFT_PADDLE_X_POS,
+        gameConstants.LEFT_PADDLE_Y_POS,
+        gameConstants.LEFT_HORIZONTAL_SCORE_POS,
+        gameConstants.LEFT_VERTICAL_SCORE_POS,
+        gameConstants.COLOR_PRE_GAME
+    );
+    
+    // Game objects
+    var ball = new Ball(gameConstants.COLOR);
+    var rightPaddle = new Paddle(
+        gameConstants.RIGHT_PADDLE_X_POS,
+        gameConstants.RIGHT_PADDLE_Y_POS,
+        gameConstants.RIGHT_HORIZONTAL_SCORE_POS,
+        gameConstants.RIGHT_VERTICAL_SCORE_POS,
+        gameConstants.COLOR
+    );
+    var leftPaddle = new Paddle(
+        gameConstants.LEFT_PADDLE_X_POS,
+        gameConstants.LEFT_PADDLE_Y_POS,
+        gameConstants.LEFT_HORIZONTAL_SCORE_POS,
+        gameConstants.LEFT_VERTICAL_SCORE_POS,
+        gameConstants.COLOR
+    );
+    
+    var opening = new OpeningScene(openingBall, openingRightPaddle, openingLeftPaddle);
+    var openingInterval = setInterval(openingTick, gameConstants.MILLESECONDS / gameConstants.FPS);
+    function openingTick () {
+        opening.tick();
     }
-    if (key_code === constants.TWO_CODE || key_code === constants.TWO_NUMPAD_CODE) {
-      twoPlayer.twoPlayerGame();
+    
+    var gameMethods = new GameMethods(ball, rightPaddle, leftPaddle);
+    var gameInterval = setInterval(gameTick, gameConstants.MILLESECONDS / gameConstants.FPS);
+    function gameTick () {
+        gameMethods.tick();
     }
-  };
 });
