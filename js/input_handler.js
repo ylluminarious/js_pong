@@ -89,10 +89,10 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             // Victory scene input
             if (gameVariables.score === gameConstants.POINTS_TO_WIN) {
                 if (key_code === gameConstants.ONE_CODE || key_code === gameConstants.ONE_NUMPAD_CODE) {
-                
+                    
                 }
                 if (key_code === gameConstants.TWO_CODE || key_code === gameConstants.TWO_NUMPAD_CODE) {
-                
+                    
                 }
             }
         };
