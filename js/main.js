@@ -34,8 +34,15 @@ require(["ball_class", "paddle_class", "opening", "buttons", "global_constants",
     );
     
     var gameMethods = new GameMethods(ball, rightPaddle, leftPaddle);
+    var event = new InputHandler(ball, rightPaddle, leftPaddle);
     var opening = new OpeningScene(openingBall, openingRightPaddle, openingLeftPaddle);
     var gameInterval = setInterval(gameTick, gameConstants.MILLESECONDS / gameConstants.FPS);
+    onkeydown = function () {
+        event.keyDown();
+    };
+    onkeyup = function () {
+        event.keyUp();
+    };
     function gameTick () {
         if (gameVariables.whichGame === null) {
             opening.tick();
