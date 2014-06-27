@@ -14,23 +14,14 @@ define(["input_handler", "game_methods", "global_constants", "global_variables"]
             this.update();
             this.draw();
         };
-        if (gameVariables.whichGame === null) {
-            onkeydown = function () {
-                var event = new InputHandler(ball, rightPaddle, leftPaddle);
-                event.openingSceneHandler();
-                console.log("still in opening scene handler");
-            };
-        }
-        if (gameVariables.whichGame === gameConstants.IS_AI) {
-            onkeydown = function () {
-                var event = new InputHandler(ball, rightPaddle, leftPaddle);
-                event.onePlayerKeyDown();
-            };
-            onkeyup = function () {
-                var event = new InputHandler(ball, rightPaddle, leftPaddle);
-                event.onePlayerKeyUp();
-            };
-        }
+        onkeydown = function () {
+            var event = new InputHandler(ball, rightPaddle, leftPaddle);
+            event.keyDown();
+        };
+        onkeyup = function () {
+            var event = new InputHandler(ball, rightPaddle, leftPaddle);
+            event.keyUp();
+        };
     };
     return OpeningScene;
 });
