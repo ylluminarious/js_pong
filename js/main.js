@@ -33,15 +33,11 @@ require(["ball_class", "paddle_class", "opening", "buttons", "global_constants",
         gameConstants.COLOR
     );
     
-    var opening = new OpeningScene(openingBall, openingRightPaddle, openingLeftPaddle);
-    var openingInterval = setInterval(openingTick, gameConstants.MILLESECONDS / gameConstants.FPS);
-    function openingTick () {
-        opening.tick();
-    }
-    
     var gameMethods = new GameMethods(ball, rightPaddle, leftPaddle);
+    var opening = new OpeningScene(openingBall, openingRightPaddle, openingLeftPaddle);
     var gameInterval = setInterval(gameTick, gameConstants.MILLESECONDS / gameConstants.FPS);
     function gameTick () {
         gameMethods.tick();
+        opening.tick();
     }
 });
