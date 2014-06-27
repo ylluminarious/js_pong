@@ -27,13 +27,9 @@ define(["global_constants", "global_variables", "input_handler"], function (game
             gameConstants.RIGHT_BUTTON_INSTRUCTIONS_Y_POS
             );
         };
-        this.victory = function (intervalToClear) {
+        this.victoryScene = function (intervalToClear) {
             this.writeText();
             clearInterval(intervalToClear);
-            onkeydown = function () {
-                var event = new InputHandler(ball, rightPaddle, leftPaddle);
-                event.victorySceneHandler();
-            };
         };
         this.tick = function (intervalToClear) {
             if (!gameVariables.paused && gameVariables.whichGame !== null) {
