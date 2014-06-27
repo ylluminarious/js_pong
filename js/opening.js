@@ -11,10 +11,8 @@ define(["input_handler", "game_methods", "global_constants", "global_variables"]
             leftPaddle.AIupdatePosition(ball);
         };
         this.tick = function () {
-            if (gameVariables.whichGame === null) {
-                this.update();
-                this.draw();
-            }
+            this.update();
+            this.draw();
         };
         if (gameVariables.whichGame === null) {
             onkeydown = function () {
