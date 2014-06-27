@@ -1,4 +1,4 @@
-require(["ball_class", "paddle_class", "opening", "buttons", "global_constants", "global_variables", "game_methods", "one_player_class", "two_player_class", "input_handler"], function (Ball, Paddle, OpeningScene, buttons, gameConstants, gameVariables, GameMethods, OnePlayerGame, TwoPlayerGame, InputHandler) {
+require(["ball_class", "paddle_class", "opening", "buttons", "global_constants", "global_variables", "game_methods", "input_handler"], function (Ball, Paddle, OpeningScene, buttons, gameConstants, gameVariables, GameMethods, InputHandler) {
     // Opening scene objects
     var openingBall = new Ball(gameConstants.COLOR_PRE_GAME);
     var openingRightPaddle = new Paddle(

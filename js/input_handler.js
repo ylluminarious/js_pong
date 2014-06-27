@@ -1,4 +1,4 @@
-define(["global_constants", "global_variables", "one_player_class", "two_player_class"], function (gameConstants, gameVariables, OnePlayerGame, TwoPlayerGame) {
+define(["global_constants", "global_variables"], function (gameConstants, gameVariables) {
     var InputHandler = function (ball, rightPaddle, leftPaddle) {
         this.keyDown = function (input) {
             // IE code
