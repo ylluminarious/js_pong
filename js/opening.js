@@ -1,4 +1,4 @@
-define(["input_handler", "game_methods", "global_constants", "global_variables"], function (InputHandler, GameMethods, gameConstants, gameVariables) {
+define(["game_methods"], function (GameMethods) {
     var OpeningScene = function (ball, rightPaddle, leftPaddle) {
         var gameMethods = new GameMethods(ball, rightPaddle, leftPaddle);
         this.draw = function () {
