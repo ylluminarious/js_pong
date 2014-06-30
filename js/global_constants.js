@@ -59,8 +59,6 @@ define(function () {
         BOTTOM_WALL: field.height,
         RIGHT_WALL: field.width,
         LEFT_WALL: 0,
-        COLOR_PRE_GAME: "gray",
-        COLOR: "white",
         TEXT_FONT: "15px Courier",
         SCORE_FONT: "50px Courier",
         STOPPED: 0,
