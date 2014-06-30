@@ -91,12 +91,10 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
                 if (key_code === gameConstants.ONE_CODE || key_code === gameConstants.ONE_NUMPAD_CODE) {
                     var gameMethods = new GameMethods();
                     gameMethods.victoryScene(intervalToClear);
-                    console.log("victory scene");
                 }
                 if (key_code === gameConstants.TWO_CODE || key_code === gameConstants.TWO_NUMPAD_CODE) {
                     var gameMethods = new GameMethods();
                     gameMethods.victoryScene(intervalToClear);
-                    console.log("victory scene");
                 }
             }
         };
