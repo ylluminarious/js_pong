@@ -1,5 +1,5 @@
-define(["global_constants", "global_variables"], function (gameConstants, gameVariables) {
-    var InputHandler = function (ball, rightPaddle, leftPaddle) {
+define(["global_constants", "global_variables", "game_methods"], function (gameConstants, gameVariables, GameMethods) {
+    var InputHandler = function (ball, rightPaddle, leftPaddle, intervalToClear) {
         this.keyDown = function (input) {
             // IE code
             input = input || window.event;
@@ -87,12 +87,16 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             }
             
             // Victory scene input
-            if (gameVariables.score === gameConstants.POINTS_TO_WIN) {
+            if (rightPaddle.score === gameConstants.POINTS_TO_WIN || leftPaddle.score === gameConstants.POINTS_TO_WIN) {
                 if (key_code === gameConstants.ONE_CODE || key_code === gameConstants.ONE_NUMPAD_CODE) {
-                    
+                    var gameMethods = new GameMethods();
+                    gameMethods.victoryScene(intervalToClear);
+                    console.log("victory scene");
                 }
                 if (key_code === gameConstants.TWO_CODE || key_code === gameConstants.TWO_NUMPAD_CODE) {
-                    
+                    var gameMethods = new GameMethods();
+                    gameMethods.victoryScene(intervalToClear);
+                    console.log("victory scene");
                 }
             }
         };
