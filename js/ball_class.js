@@ -1,13 +1,12 @@
-define(["global_constants"], function (gameConstants) {
-    var Ball = function (color) {
+define(["global_constants", "global_variables"], function (gameConstants, gameVariables) {
+    var Ball = function () {
         this.x = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
         this.y = gameConstants.VERTICAL_CENTER_OF_FIELD;
         this.horizontalVelocity = gameConstants.STOPPED;
         this.verticalVelocity = gameConstants.STOPPED;
         this.radius = gameConstants.BALL_RADIUS;
-        this.color = color;
         this.draw = function () {
-            gameConstants.CONTEXT.fillStyle = this.color;
+            gameConstants.CONTEXT.fillStyle = gameVariables.color;
             gameConstants.CONTEXT.beginPath();
             gameConstants.CONTEXT.arc(this.x, this.y, this.radius, gameConstants.BALL_START_ANGLE, gameConstants.BALL_END_ANGLE);
             gameConstants.CONTEXT.fill();
