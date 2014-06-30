@@ -1,4 +1,4 @@
-define(["global_constants", "global_variables", "input_handler"], function (gameConstants, gameVariables, InputHandler) {
+define(["global_constants", "global_variables"], function (gameConstants, gameVariables) {
     var GameMethods = function (ball, rightPaddle, leftPaddle) {
         this.draw = function () {
             gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.FIELD.width, gameConstants.FIELD.height);
@@ -16,7 +16,7 @@ define(["global_constants", "global_variables", "input_handler"], function (game
             }
         };
         this.writeText = function () {
-            gameConstants.CONTEXT.fillStyle = gameConstants.COLOR;
+            gameConstants.CONTEXT.fillStyle = "white";
             gameConstants.CONTEXT.font = gameConstants.TEXT_FONT;
             gameConstants.CONTEXT.fillText("Press \"1\" for single player",
             gameConstants.LEFT_BUTTON_INSTRUCTIONS_X_POS,
