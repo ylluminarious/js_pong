@@ -16,12 +16,12 @@ define(["global_variables"], function (gameVariables) {
     
     // Pause, play, and restart buttons' code.
     $("#pause_button").clickToggle(function () {
-        if (gameVariables.whichGame !== null) {
+        if (gameVariables.whichGame !== "opening scene") {
             gameVariables.paused = true;
             $("#pause_button").html("&#9658;");
         }
     }, function () {
-        if (gameVariables.whichGame !== null) {
+        if (gameVariables.whichGame !== "opening scene") {
             gameVariables.paused = false;
             $("#pause_button").html("&#10074;&#10074;");
         }
