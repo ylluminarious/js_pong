@@ -9,9 +9,9 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
         this.update = function () {
             ball.updatePosition(rightPaddle, leftPaddle);
             rightPaddle.updatePosition();
-            if (gameVariables.whichGame === gameConstants.IS_AI) {
+            if (gameVariables.whichGame === "one player") {
                 leftPaddle.AIupdatePosition(ball);
-            } else if (gameVariables.whichGame === gameConstants.IS_NOT_AI) {
+            } else if (gameVariables.whichGame === "two player") {
                 leftPaddle.updatePosition();
             }
         };
@@ -32,7 +32,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             clearInterval(intervalToClear);
         };
         this.tick = function (intervalToClear) {
-            if (!gameVariables.paused && gameVariables.whichGame !== null) {
+            if (!gameVariables.paused && gameVariables.whichGame !== "opening") {
                 this.update();
                 this.draw();
             }

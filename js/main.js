@@ -27,7 +27,7 @@ require(["ball_class", "paddle_class", "opening", "buttons", "global_constants",
         event.keyUp();
     };
     function gameTick () {
-        if (gameVariables.whichGame === null) {
+        if (gameVariables.whichGame === "opening") {
             opening.tick();
             gameVariables.color = "gray";
         } else {

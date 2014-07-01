@@ -1,7 +1,7 @@
 define(function () {
     var gameVariables = {
         paused: false,
-        whichGame: null,
+        whichGame: "opening",
         color: null,
         score: 0
     };

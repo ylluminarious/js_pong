@@ -9,17 +9,17 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
             input.preventDefault();
             
             // Opening scene input
-            if (gameVariables.whichGame === null) {
+            if (gameVariables.whichGame === "opening") {
                 if (key_code === gameConstants.ONE_CODE || key_code === gameConstants.ONE_NUMPAD_CODE) {
-                    gameVariables.whichGame = gameConstants.IS_AI;
+                    gameVariables.whichGame = "one player";
                 }
                 if (key_code === gameConstants.TWO_CODE || key_code === gameConstants.TWO_NUMPAD_CODE) {
-                    gameVariables.whichGame = gameConstants.IS_NOT_AI;
+                    gameVariables.whichGame = "two player";
                 }
             }
             
             // One-player game keydown input
-            if (gameVariables.whichGame === gameConstants.IS_AI) {
+            if (gameVariables.whichGame === "one player") {
                 // If key pressed is the spacebar and the ball isn't moving...
                 if (key_code === gameConstants.SPACEBAR_CODE && ball.horizontalVelocity === gameConstants.STOPPED && ball.verticalVelocity === gameConstants.STOPPED) {
                     // ... make the ball go leftwards and downwards.
@@ -45,7 +45,7 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
             }
             
             // Two-player game keydown input
-            if (gameVariables.whichGame === gameConstants.IS_NOT_AI) {
+            if (gameVariables.whichGame === "two player") {
                 // If key pressed is the spacebar and the ball is not moving...
                 if (key_code === gameConstants.SPACEBAR_CODE && ball.horizontalVelocity === gameConstants.STOPPED && ball.verticalVelocity === gameConstants.STOPPED) {
                     // ... make the ball move leftwards and downwards.
@@ -105,7 +105,7 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
             var key_code = input.keyCode;
             
             // One-player keyup input
-            if (gameVariables.whichGame === gameConstants.IS_AI) {
+            if (gameVariables.whichGame === "one player") {
                 // If any of the keys for going upwards are released...
                 if (key_code === gameConstants.UP_ARROW_CODE || key_code === gameConstants.W_CODE || key_code === gameConstants.A_CODE || key_code === gameConstants.SINGLE_QUOTE_CODE) {
                     // ... stop moving the paddle.
@@ -119,7 +119,7 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
             }
             
             // Two-player keyup input
-            if (gameVariables.whichGame === gameConstants.IS_NOT_AI) {
+            if (gameVariables.whichGame === "two player") {
                 // If a is released...
                 if (key_code === gameConstants.A_CODE) {
                     // ... stop the left paddle.
