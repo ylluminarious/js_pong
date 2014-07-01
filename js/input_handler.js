@@ -9,7 +9,6 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
             input.preventDefault();
             
             // Opening scene input
-            if (gameVariables.whichGame === "opening") {
             if (gameVariables.whichGame === "opening scene") {
                 if (key_code === gameConstants.ONE_CODE || key_code === gameConstants.ONE_NUMPAD_CODE) {
                     gameVariables.whichGame = "one player";
@@ -88,14 +87,20 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
             }
             
             // Victory scene input
-            if (rightPaddle.score === gameConstants.POINTS_TO_WIN || leftPaddle.score === gameConstants.POINTS_TO_WIN) {
+            if (gameVariables.whichGame === "victory scene") {
                 if (key_code === gameConstants.ONE_CODE || key_code === gameConstants.ONE_NUMPAD_CODE) {
-                    var gameMethods = new GameMethods();
-                    gameMethods.victoryScene(intervalToClear);
+                    rightPaddle.score = 0;
+                    leftPaddle.score = 0;
+                    ball.horizontalVelocity = gameConstants.STOPPED;
+                    ball.verticalVelocity = gameConstants.STOPPED;
+                    gameVariables.whichGame = "one player";
                 }
                 if (key_code === gameConstants.TWO_CODE || key_code === gameConstants.TWO_NUMPAD_CODE) {
-                    var gameMethods = new GameMethods();
-                    gameMethods.victoryScene(intervalToClear);
+                    rightPaddle.score = 0;
+                    leftPaddle.score = 0;
+                    ball.horizontalVelocity = gameConstants.STOPPED;
+                    ball.verticalVelocity = gameConstants.STOPPED;
+                    gameVariables.whichGame = "two player";
                 }
             }
         };
