@@ -19,9 +19,6 @@ define(function () {
         LEFT_VERTICAL_SCORE_POS: 70,
         LEFT_PADDLE_VELOCITY: 315,
         
-        IS_AI: true,
-        IS_NOT_AI: false,
-        
         HORIZONTAL_CENTER_OF_FIELD: 350,
         VERTICAL_CENTER_OF_FIELD: 250,
         BALL_RADIUS: 15,
