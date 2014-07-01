@@ -5,25 +5,26 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             ball.draw();
             rightPaddle.draw();
             leftPaddle.draw();
+            if (gameVariables.whichGame === "victory scene") {
+                this.writeText();
+            }
         };
         this.update = function () {
             ball.updatePosition(rightPaddle, leftPaddle);
             rightPaddle.updatePosition();
             if (rightPaddle.score === gameConstants.POINTS_TO_WIN || leftPaddle.score === gameConstants.POINTS_TO_WIN) {
                 gameVariables.whichGame = "victory scene";
-            }
-            if (gameVariables.whichGame === "one player") {
-                leftPaddle.AIupdatePosition(ball);
-            } else if (gameVariables.whichGame === "two player") {
-                leftPaddle.updatePosition();
-            } else if (gameVariables.whichGame === "victory scene") {
-                this.writeText();
                 ball.horizontalVelocity = gameConstants.STOPPED;
                 ball.verticalVelocity = gameConstants.STOPPED;
                 rightPaddle.horizontalVelocity = gameConstants.STOPPED;
                 rightPaddle.verticalVelocity = gameConstants.STOPPED;
                 leftPaddle.horizontalVelocity = gameConstants.STOPPED;
                 leftPaddle.verticalVelocity = gameConstants.STOPPED;
+            }
+            if (gameVariables.whichGame === "one player") {
+                leftPaddle.AIupdatePosition(ball);
+            } else if (gameVariables.whichGame === "two player") {
+                leftPaddle.updatePosition();
             }
         };
         this.writeText = function () {
