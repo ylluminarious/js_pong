@@ -88,6 +88,10 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
             
             // Victory scene input
             if (gameVariables.whichGame === "victory scene") {
+                rightPaddle.x = gameConstants.RIGHT_PADDLE_X_POS;
+                rightPaddle.y = gameConstants.RIGHT_PADDLE_Y_POS;
+                leftPaddle.x = gameConstants.LEFT_PADDLE_X_POS;
+                leftPaddle.y = gameConstants.LEFT_PADDLE_Y_POS;
                 if (key_code === gameConstants.ONE_CODE || key_code === gameConstants.ONE_NUMPAD_CODE) {
                     rightPaddle.score = 0;
                     leftPaddle.score = 0;
