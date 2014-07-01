@@ -10,6 +10,7 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
             
             // Opening scene input
             if (gameVariables.whichGame === "opening") {
+            if (gameVariables.whichGame === "opening scene") {
                 if (key_code === gameConstants.ONE_CODE || key_code === gameConstants.ONE_NUMPAD_CODE) {
                     gameVariables.whichGame = "one player";
                 }
