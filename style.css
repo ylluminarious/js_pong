@@ -9,26 +9,16 @@
     cursor: default;
     text-align: center;
 }
-#author {
-    cursor: default;
-    font-family: Courier;
-    text-align: center;
-}
-#instructions_for_one_player {
+#instructions {
     font-family: Verdana;
+    width: 500px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: left;
     background-color: #6699CC;
     border-radius: 5px;
-    width: 250px;
-    text-align: left;
-    display: inline-block;
-}
-#instructions_for_two_player {
-    font-family: Verdana;
-    background-color: #2B966D;
-    border-radius: 5px;
-    width: 250px;
-    text-align: left;
-    display: inline-block;
 }
 #pause_button {
     cursor: pointer;
@@ -63,17 +53,6 @@
     width: 700px;
     text-align: right;
     border-radius: 5px;
-}
-a:first-child {
-    text-decoration: none;
-    color: blue;
-}
-a:nth-child(2) {
-    text-decoration: none;
-    color: lightblue;
-}
-a:hover {
-    text-decoration: underline;
 }
 body {
     background-color: gray;
