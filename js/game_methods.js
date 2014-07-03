@@ -43,9 +43,6 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             gameConstants.RIGHT_BUTTON_INSTRUCTIONS_Y_POS
             );
         };
-        this.victoryScene = function (intervalToClear) {
-            this.writeText();
-            clearInterval(intervalToClear);
         // Method for the buttons of the game (uses jQuery to make them work).
         this.buttons = function () {
             // Click toggle method for the play/pause button (standard jQuery no longer has a toggle method for clicking).
