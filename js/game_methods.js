@@ -1,5 +1,6 @@
 define(["global_constants", "global_variables"], function (gameConstants, gameVariables) {
     var GameMethods = function (ball, rightPaddle, leftPaddle) {
+        // Draws the objects of the game, and the text as well, but only in the victory scene.
         this.draw = function () {
             gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.FIELD.width, gameConstants.FIELD.height);
             ball.draw();
@@ -9,6 +10,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 this.writeText();
             }
         };
+        // Updates the positions of the game objects, and does so differently depending on which game scene is current.
         this.update = function () {
             ball.updatePosition(rightPaddle, leftPaddle);
             rightPaddle.updatePosition();
@@ -31,6 +33,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 leftPaddle.updatePosition();
             }
         };
+        // Method that writes the instructional text telling you how to pick which game you want.
         this.writeText = function () {
             gameConstants.CONTEXT.fillStyle = "white";
             gameConstants.CONTEXT.font = gameConstants.TEXT_FONT;
