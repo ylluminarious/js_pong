@@ -1,4 +1,4 @@
-require(["ball_class", "paddle_class", "opening_scene", "buttons", "global_constants", "global_variables", "game_methods", "input_handler"], function (Ball, Paddle, OpeningScene, buttons, gameConstants, gameVariables, GameMethods, InputHandler) {
+require(["ball_class", "paddle_class", "opening_scene", "global_constants", "global_variables", "game_methods", "input_handler"], function (Ball, Paddle, OpeningScene, gameConstants, gameVariables, GameMethods, InputHandler) {
     // Game objects
     var ball = new Ball(gameVariables.color);
     var rightPaddle = new Paddle(
@@ -26,6 +26,7 @@ require(["ball_class", "paddle_class", "opening_scene", "buttons", "global_const
     onkeyup = function () {
         event.keyUp();
     };
+    gameMethods.buttons();
     function gameTick () {
         if (gameVariables.whichGame === "opening scene") {
             opening.tick();
