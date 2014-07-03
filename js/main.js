@@ -16,10 +16,15 @@ require(["ball_class", "paddle_class", "opening_scene", "global_constants", "glo
         ball
     );
     
+    // New instances of GameMethods, InputHandler, and OpeningScene.
     var gameMethods = new GameMethods(ball, rightPaddle, leftPaddle);
     var event = new InputHandler(ball, rightPaddle, leftPaddle, gameInterval);
     var opening = new OpeningScene(ball, rightPaddle, leftPaddle);
+    
+    // Interval that will make the game loop.
     var gameInterval = setInterval(gameTick, gameConstants.MILLESECONDS / gameConstants.FPS);
+    
+    // Keyboard events will run methods from InputHandler, and clicking-button events will run methods from GameMethods.
     onkeydown = function () {
         event.keyDown();
     };
@@ -27,6 +32,8 @@ require(["ball_class", "paddle_class", "opening_scene", "global_constants", "glo
         event.keyUp();
     };
     gameMethods.buttons();
+    
+    // Function to be run in every step of gameInterval.
     function gameTick () {
         if (gameVariables.whichGame === "opening scene") {
             opening.tick();
