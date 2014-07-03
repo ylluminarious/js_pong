@@ -23,10 +23,8 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 leftPaddle.y = gameConstants.LEFT_PADDLE_Y_POS;
                 ball.horizontalVelocity = gameConstants.STOPPED;
                 ball.verticalVelocity = gameConstants.STOPPED;
-                rightPaddle.horizontalVelocity = gameConstants.STOPPED;
-                rightPaddle.verticalVelocity = gameConstants.STOPPED;
-                leftPaddle.horizontalVelocity = gameConstants.STOPPED;
-                leftPaddle.verticalVelocity = gameConstants.STOPPED;
+                rightPaddle.velocity = gameConstants.STOPPED;
+                leftPaddle.velocity = gameConstants.STOPPED;
             }
             if (gameVariables.whichGame === "one player") {
                 leftPaddle.AIupdatePosition();
