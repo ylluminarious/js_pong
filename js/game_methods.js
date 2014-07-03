@@ -2,7 +2,6 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
     var GameMethods = function (ball, rightPaddle, leftPaddle) {
         // Draws the objects of the game, and the text as well, but only in the victory scene.
         this.draw = function () {
-            gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.FIELD.width, gameConstants.FIELD.height);
             ball.draw();
             rightPaddle.draw();
             leftPaddle.draw();
@@ -91,6 +90,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
         };
         this.tick = function (intervalToClear) {
             if (!gameVariables.paused && gameVariables.whichGame !== "opening scene") {
+                gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.FIELD.width, gameConstants.FIELD.height);
                 this.update();
                 this.draw();
             }

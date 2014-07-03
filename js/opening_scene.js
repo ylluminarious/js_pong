@@ -1,4 +1,4 @@
-define(["game_methods"], function (GameMethods) {
+define(["game_methods", "global_constants"], function (GameMethods, gameConstants) {
     var OpeningScene = function (ball, rightPaddle, leftPaddle) {
         var gameMethods = new GameMethods(ball, rightPaddle, leftPaddle);
         this.draw = function () {
@@ -11,6 +11,7 @@ define(["game_methods"], function (GameMethods) {
             leftPaddle.AIupdatePosition(ball);
         };
         this.tick = function () {
+            gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.FIELD.width, gameConstants.FIELD.height);
             this.update();
             this.draw();
         };
