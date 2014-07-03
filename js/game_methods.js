@@ -63,33 +63,30 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                     return this;
                 };
             }(jQuery));
-            // If the scene is not the opening or victory scene, the buttons can work.
-            if (gameVariables.whichGame !== "opening scene" && gameVariables.whichGame !== "victory scene") {
-                // Pause, play, and restart buttons' code.
-                $("#pause_button").clickToggle(function () {
-                    gameVariables.paused = true;
-                    $("#pause_button").html("&#9658;");
-                }, function () {
-                    gameVariables.paused = false;
-                    $("#pause_button").html("&#10074;&#10074;");
-                });
-                $("#restart_button").click(function () {
-                    rightPaddle.score = gameConstants.NO_POINTS;
-                    leftPaddle.score = gameConstants.NO_POINTS;
-                    ball.x = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
-                    ball.y = gameConstants.VERTICAL_CENTER_OF_FIELD;
-                    rightPaddle.x = gameConstants.RIGHT_PADDLE_X_POS;
-                    rightPaddle.y = gameConstants.RIGHT_PADDLE_Y_POS;
-                    leftPaddle.x = gameConstants.LEFT_PADDLE_X_POS;
-                    leftPaddle.y = gameConstants.LEFT_PADDLE_Y_POS;
-                    ball.horizontalVelocity = gameConstants.STOPPED;
-                    ball.verticalVelocity = gameConstants.STOPPED;
-                    rightPaddle.horizontalVelocity = gameConstants.STOPPED;
-                    rightPaddle.verticalVelocity = gameConstants.STOPPED;
-                    leftPaddle.horizontalVelocity = gameConstants.STOPPED;
-                    leftPaddle.verticalVelocity = gameConstants.STOPPED;
-                });
-            }
+            // Pause, play, and restart buttons' code.
+            $("#pause_button").clickToggle(function () {
+                gameVariables.paused = true;
+                $("#pause_button").html("&#9658;");
+            }, function () {
+                gameVariables.paused = false;
+                $("#pause_button").html("&#10074;&#10074;");
+            });
+            $("#restart_button").click(function () {
+                rightPaddle.score = gameConstants.NO_POINTS;
+                leftPaddle.score = gameConstants.NO_POINTS;
+                ball.x = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
+                ball.y = gameConstants.VERTICAL_CENTER_OF_FIELD;
+                rightPaddle.x = gameConstants.RIGHT_PADDLE_X_POS;
+                rightPaddle.y = gameConstants.RIGHT_PADDLE_Y_POS;
+                leftPaddle.x = gameConstants.LEFT_PADDLE_X_POS;
+                leftPaddle.y = gameConstants.LEFT_PADDLE_Y_POS;
+                ball.horizontalVelocity = gameConstants.STOPPED;
+                ball.verticalVelocity = gameConstants.STOPPED;
+                rightPaddle.horizontalVelocity = gameConstants.STOPPED;
+                rightPaddle.verticalVelocity = gameConstants.STOPPED;
+                leftPaddle.horizontalVelocity = gameConstants.STOPPED;
+                leftPaddle.verticalVelocity = gameConstants.STOPPED;
+            });
         };
         this.tick = function (intervalToClear) {
             if (!gameVariables.paused && gameVariables.whichGame !== "opening scene") {
