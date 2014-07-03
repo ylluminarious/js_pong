@@ -6,14 +6,14 @@ require(["ball_class", "paddle_class", "opening_scene", "global_constants", "glo
         gameConstants.RIGHT_PADDLE_Y_POS,
         gameConstants.RIGHT_HORIZONTAL_SCORE_POS,
         gameConstants.RIGHT_VERTICAL_SCORE_POS,
-        gameVariables.color
+        ball
     );
     var leftPaddle = new Paddle(
         gameConstants.LEFT_PADDLE_X_POS,
         gameConstants.LEFT_PADDLE_Y_POS,
         gameConstants.LEFT_HORIZONTAL_SCORE_POS,
         gameConstants.LEFT_VERTICAL_SCORE_POS,
-        gameVariables.color
+        ball
     );
     
     var gameMethods = new GameMethods(ball, rightPaddle, leftPaddle);

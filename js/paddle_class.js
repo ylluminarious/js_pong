@@ -1,5 +1,5 @@
 define(["global_constants", "global_variables"], function (gameConstants, gameVariables) {
-    var Paddle = function (xPos, yPos, horizontalScorePos, verticalScorePos) {
+    var Paddle = function (xPos, yPos, horizontalScorePos, verticalScorePos, ball) {
         this.x = xPos;
         this.y = yPos;
         this.horizontalScorePos = horizontalScorePos;
@@ -15,12 +15,19 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             gameConstants.CONTEXT.fillText(this.score, this.horizontalScorePos, this.verticalScorePos);
         };
         this.updatePosition = function () {
-            this.y += this.velocity / gameConstants.FPS;
-            if ( this.y < gameConstants.TOP_WALL || (this.y + this.height) > gameConstants.BOTTOM_WALL ) {
-                this.velocity = gameConstants.STOPPED;
+            // If the ball is not stopped, update position.
+            if (ball.horizontalVelocity !== gameConstants.STOPPED && ball.verticalVelocity !== gameConstants.STOPPED) {
+                // Update position.
+                this.y += this.velocity / gameConstants.FPS;
+                
+                // If the paddle hits the top wall or the bottom wall... 
+                if ( this.y < gameConstants.TOP_WALL || (this.y + this.height) > gameConstants.BOTTOM_WALL ) {
+                    // ... stop the paddle.
+                    this.velocity = gameConstants.STOPPED;
+                }
             }
         };
-        this.AIupdatePosition = function (ball) {
+        this.AIupdatePosition = function () {
             
             // -------------------- Start of AI code --------------------
             

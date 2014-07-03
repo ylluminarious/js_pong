@@ -29,7 +29,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 leftPaddle.verticalVelocity = gameConstants.STOPPED;
             }
             if (gameVariables.whichGame === "one player") {
-                leftPaddle.AIupdatePosition(ball);
+                leftPaddle.AIupdatePosition();
             } else if (gameVariables.whichGame === "two player") {
                 leftPaddle.updatePosition();
             }
