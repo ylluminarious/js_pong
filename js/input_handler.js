@@ -89,15 +89,15 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
             // Victory scene input
             if (gameVariables.whichGame === "victory scene") {
                 if (key_code === gameConstants.ONE_CODE || key_code === gameConstants.ONE_NUMPAD_CODE) {
-                    rightPaddle.score = 0;
-                    leftPaddle.score = 0;
+                    rightPaddle.score = gameConstants.NO_POINTS;
+                    leftPaddle.score = gameConstants.NO_POINTS;
                     ball.horizontalVelocity = gameConstants.STOPPED;
                     ball.verticalVelocity = gameConstants.STOPPED;
                     gameVariables.whichGame = "one player";
                 }
                 if (key_code === gameConstants.TWO_CODE || key_code === gameConstants.TWO_NUMPAD_CODE) {
-                    rightPaddle.score = 0;
-                    leftPaddle.score = 0;
+                    rightPaddle.score = gameConstants.NO_POINTS;
+                    leftPaddle.score = gameConstants.NO_POINTS;
                     ball.horizontalVelocity = gameConstants.STOPPED;
                     ball.verticalVelocity = gameConstants.STOPPED;
                     gameVariables.whichGame = "two player";
