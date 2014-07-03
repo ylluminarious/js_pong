@@ -1,8 +1,5 @@
-#field {
-    border-style: solid;
-    border-color: white;
-    background-color: black;
-    border-radius: 5px;
+body {
+    background-color: gray;
 }
 #header {
     font-family: Courier;
@@ -19,6 +16,24 @@
     text-align: left;
     background-color: #6699CC;
     border-radius: 5px;
+}
+#buttons_container {
+    background-color: black;
+    color: white;
+    border-style: solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-color: white;
+    width: 700px;
+    text-align: right;
+    border-radius: 5px;
+}
+#tools {
+    font-family: Courier;
+    float: left;
+    padding: 5px;
+    cursor: default;
 }
 #pause_button {
     cursor: pointer;
@@ -42,18 +57,9 @@
 #restart_text {
     font-family: Courier;
 }
-#buttons_container {
-    background-color: black;
-    color: white;
+#field {
     border-style: solid;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
     border-color: white;
-    width: 700px;
-    text-align: right;
+    background-color: black;
     border-radius: 5px;
-}
-body {
-    background-color: gray;
 }
