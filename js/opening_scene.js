@@ -7,8 +7,8 @@ define(["game_methods", "global_constants"], function (GameMethods, gameConstant
         };
         this.update = function () {
             ball.updatePosition(rightPaddle, leftPaddle);
-            rightPaddle.AIupdatePosition(ball);
-            leftPaddle.AIupdatePosition(ball);
+            rightPaddle.AIupdatePosition();
+            leftPaddle.AIupdatePosition();
         };
         this.tick = function () {
             gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.FIELD.width, gameConstants.FIELD.height);

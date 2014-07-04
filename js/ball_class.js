@@ -15,19 +15,19 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             this.x += this.horizontalVelocity / gameConstants.FPS;
             this.y += this.verticalVelocity / gameConstants.FPS;
             // -------------------- Start of ball collision code --------------------
- 
+            
             // Top wall collision.
             if ((this.y - this.radius) < gameConstants.TOP_WALL) {
                 this.y = this.radius;
                 this.verticalVelocity = -this.verticalVelocity;
             }
- 
+            
             // Bottom wall collision.
             if ((this.y + this.radius) > gameConstants.BOTTOM_WALL) {
                 this.y = gameConstants.BOTTOM_WALL - this.radius;
                 this.verticalVelocity = -this.verticalVelocity;
             }
- 
+            
             // Right paddle collison on the front side of the paddle.
             if ((this.x + this.radius) > rightPaddle.x) {
                 if (this.y > rightPaddle.y) {
@@ -37,7 +37,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                     }
                 }
             }
- 
+            
             // Right paddle collision on the top side of the paddle.
             if ((this.x + this.radius) > rightPaddle.x) {
                 if ((this.y + this.radius) > rightPaddle.y) {
@@ -47,7 +47,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                     }
                 }
             }
- 
+            
             // Right paddle collision on the bottom side of the paddle.
             if ((this.x + this.radius) > rightPaddle.x) {
                 if ((this.y - this.radius) < (rightPaddle.y + rightPaddle.height)) {
@@ -57,7 +57,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                     }
                 }
             }
- 
+            
             // Left paddle collision on the front side of the paddle.
             if ((this.x - this.radius) < (leftPaddle.x + leftPaddle.width)) {
                 if (this.y > leftPaddle.y) {
@@ -67,7 +67,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                     }
                 }
             }
- 
+            
             // Left paddle collision on the top side of the paddle.
             if ((this.x - this.radius) < (leftPaddle.x + leftPaddle.width)) {
                 if ((this.y + this.radius) > leftPaddle.y) {
@@ -77,7 +77,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                     }
                 }
             }
- 
+            
             // Left paddle collision on the bottom side of the paddle.
             if ((this.x - this.radius) < (leftPaddle.x + leftPaddle.width)) {
                 if ((this.y - this.radius) < (leftPaddle.y + leftPaddle.height)) {
@@ -87,11 +87,11 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                     }
                 }
             }
- 
+            
             // ******************** End of ball collision code ********************
- 
+            
             // Restart at center when the ball leaves the field and score a point for the paddle that scored.
-      
+            
             // When the ball goes past the right paddle...
             if ((this.x - this.radius) > gameConstants.RIGHT_WALL) {
                 // ... restart at the center of the field and mark a point for the left paddle.
@@ -99,7 +99,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 this.y = gameConstants.VERTICAL_CENTER_OF_FIELD;
                 leftPaddle.score++;
             }
-      
+            
             // When the ball goes past the left paddle...
             if ((this.x + this.radius) < gameConstants.LEFT_WALL) {
                 // ... restart at the center of the field and mark a point for the right paddle.
