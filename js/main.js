@@ -31,7 +31,6 @@ require(["ball_class", "paddle_class", "opening_scene", "global_constants", "glo
     onkeyup = function () {
         event.keyUp();
     };
-    gameMethods.buttons();
     
     // Function to be run in every step of gameInterval.
     function gameTick () {

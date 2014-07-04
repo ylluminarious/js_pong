@@ -91,6 +91,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.FIELD.width, gameConstants.FIELD.height);
                 this.update();
                 this.draw();
+                this.buttons();
             }
         };
     };
