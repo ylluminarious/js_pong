@@ -128,6 +128,9 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 this.update();
                 this.draw();
                 this.buttons();
+                $("#game_mode").html(gameVariables.whichGame);
+                $("#right_player_score").html(rightPaddle.score);
+                $("#left_player_score").html(leftPaddle.score);
             }
         };
     };
