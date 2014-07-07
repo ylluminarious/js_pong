@@ -1,4 +1,5 @@
 require(["ball_class", "paddle_class", "opening_scene", "global_constants", "global_variables", "game_methods", "input_handler"], function (Ball, Paddle, OpeningScene, gameConstants, gameVariables, GameMethods, InputHandler) {
+require(["ball_class", "paddle_class", "global_constants", "global_variables", "game_methods", "input"], function (Ball, Paddle, gameConstants, gameVariables, GameMethods, Input) {
     // Game objects
     var ball = new Ball(gameVariables.color);
     var rightPaddle = new Paddle(
