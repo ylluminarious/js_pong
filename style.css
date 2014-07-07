@@ -29,9 +29,11 @@ body {
     text-align: right;
     border-radius: 5px;
 }
-#tools {
+#stats {
     font-family: Courier;
+    font-size: 12.5px;
     float: left;
+    display: inline-block;
     padding: 5px;
     cursor: default;
 }
