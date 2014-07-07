@@ -120,6 +120,9 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 $("#right_player_score").html(rightPaddle.score);
                 $("#left_player_score").html(leftPaddle.score);
             }
+            if (gameVariables.whichGame !== "opening scene") {
+                gameVariables.color = "white";
+            }
         };
     };
     return GameMethods;

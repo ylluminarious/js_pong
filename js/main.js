@@ -32,9 +32,6 @@ require(["ball_class", "paddle_class", "global_constants", "global_variables", "
     };
     // Function to be run in every step of gameInterval.
     function gameTick () {
-        if (gameVariables.whichGame !== "opening scene") {
-            gameVariables.color = "white";
-        }
         gameMethods.tick();
     }
 });
