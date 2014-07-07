@@ -1,4 +1,4 @@
-require(["ball_class", "paddle_class", "global_constants", "global_variables", "game_methods", "input"], function (Ball, Paddle, gameConstants, gameVariables, GameMethods, Input) {
+require(["ball_class", "paddle_class", "global_constants", "game_methods", "input"], function (Ball, Paddle, gameConstants, GameMethods, Input) {
     // Game objects
     var ball = new Ball(rightPaddle, leftPaddle);
     var rightPaddle = new Paddle(
