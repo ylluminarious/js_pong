@@ -110,7 +110,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 }
             });
         };
-        this.tick = function (intervalToClear) {
+        this.tick = function () {
             if (!gameVariables.paused) {
                 gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.FIELD.width, gameConstants.FIELD.height);
                 this.update();
