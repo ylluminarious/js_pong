@@ -28,7 +28,6 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             }
         };
         this.AIupdatePosition = function () {
-            
             // -------------------- Start of AI code --------------------
             
             // If the ball is not stopped, update position and look through the code for the AI.
