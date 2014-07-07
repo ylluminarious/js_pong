@@ -27,6 +27,15 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
         this.update = function () {
             ball.updatePosition(rightPaddle, leftPaddle);
             rightPaddle.updatePosition();
+            if (gameVariables.whichGame === "opening scene") {
+                ball.updatePosition(rightPaddle, leftPaddle);
+                rightPaddle.AIupdatePosition();
+                leftPaddle.AIupdatePosition();
+            } else if (gameVariables.whichGame === "one player") {
+                leftPaddle.AIupdatePosition();
+            } else if (gameVariables.whichGame === "two player") {
+                leftPaddle.updatePosition();
+            }
             if (rightPaddle.score === gameConstants.POINTS_TO_WIN || leftPaddle.score === gameConstants.POINTS_TO_WIN) {
                 gameVariables.whichGame = "victory scene";
                 ball.x = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
