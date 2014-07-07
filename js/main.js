@@ -24,11 +24,11 @@ require(["ball_class", "paddle_class", "global_constants", "game_methods", "inpu
     var gameInterval = setInterval(gameTick, gameConstants.MILLESECONDS / gameConstants.FPS);
     
     // Keyboard events will run methods from the Input class.
-    onkeydown = function () {
-        event.keyDown();
+    onkeydown = function (input) {
+        event.keyDown(input);
     };
-    onkeyup = function () {
-        event.keyUp();
+    onkeyup = function (input) {
+        event.keyUp(input);
     };
     // Function to be run in every step of gameInterval.
     function gameTick () {
