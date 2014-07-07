@@ -50,6 +50,12 @@ define(function () {
         RIGHT_BUTTON_INSTRUCTIONS_X_POS: 400,
         RIGHT_BUTTON_INSTRUCTIONS_Y_POS: 90,
         
+        // Coordinate constants for "Winner!" text
+        RIGHT_WINNER_X_POS: 500,
+        RIGHT_WINNER_Y_POS: 250,
+        LEFT_WINNER_X_POS: 150,
+        LEFT_WINNER_Y_POS: 250,
+        
         // Constants for the keys' codes
         SPACEBAR_CODE: 32,
         UP_ARROW_CODE: 38,

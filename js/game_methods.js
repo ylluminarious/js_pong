@@ -44,6 +44,19 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             gameConstants.RIGHT_BUTTON_INSTRUCTIONS_X_POS,
             gameConstants.RIGHT_BUTTON_INSTRUCTIONS_Y_POS
             );
+            if (gameVariables.whichGame === "victory scene") {
+                if (rightPaddle.score === gameConstants.POINTS_TO_WIN) {
+                    gameConstants.CONTEXT.fillText("Winner!",
+                    gameConstants.RIGHT_WINNER_X_POS,
+                    gameConstants.RIGHT_WINNER_Y_POS
+                );
+                } else if (leftPaddle.score === gameConstants.POINTS_TO_WIN) {
+                    gameConstants.CONTEXT.fillText("Winner!",
+                    gameConstants.LEFT_WINNER_X_POS,
+                    gameConstants.LEFT_WINNER_Y_POS
+                );
+                }
+            }
         };
         // Method for the buttons of the game (uses jQuery to make them work).
         this.buttons = function () {
