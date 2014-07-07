@@ -1,7 +1,6 @@
-require(["ball_class", "paddle_class", "opening_scene", "global_constants", "global_variables", "game_methods", "input_handler"], function (Ball, Paddle, OpeningScene, gameConstants, gameVariables, GameMethods, InputHandler) {
 require(["ball_class", "paddle_class", "global_constants", "global_variables", "game_methods", "input"], function (Ball, Paddle, gameConstants, gameVariables, GameMethods, Input) {
     // Game objects
-    var ball = new Ball(gameVariables.color);
+    var ball = new Ball(rightPaddle, leftPaddle);
     var rightPaddle = new Paddle(
         gameConstants.RIGHT_PADDLE_X_POS,
         gameConstants.RIGHT_PADDLE_Y_POS,
@@ -17,30 +16,25 @@ require(["ball_class", "paddle_class", "global_constants", "global_variables", "
         ball
     );
     
-    // New instances of GameMethods, InputHandler, and OpeningScene.
+    // New instances of GameMethods and Input.
     var gameMethods = new GameMethods(ball, rightPaddle, leftPaddle);
-    var event = new InputHandler(ball, rightPaddle, leftPaddle, gameInterval);
-    var opening = new OpeningScene(ball, rightPaddle, leftPaddle);
+    var event = new Input(ball, rightPaddle, leftPaddle, gameInterval);
     
     // Interval that will make the game loop.
     var gameInterval = setInterval(gameTick, gameConstants.MILLESECONDS / gameConstants.FPS);
     
-    // Keyboard events will run methods from InputHandler, and clicking-button events will run methods from GameMethods.
+    // Keyboard events will run methods from the Input class.
     onkeydown = function () {
         event.keyDown();
     };
     onkeyup = function () {
         event.keyUp();
     };
-    
     // Function to be run in every step of gameInterval.
     function gameTick () {
-        if (gameVariables.whichGame === "opening scene") {
-            opening.tick();
-            gameVariables.color = "gray";
-        } else {
-            gameMethods.tick();
+        if (gameVariables.whichGame !== "opening scene") {
             gameVariables.color = "white";
         }
+        gameMethods.tick();
     }
 });
