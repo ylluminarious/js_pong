@@ -6,7 +6,6 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
         this.verticalVelocity = gameConstants.STOPPED;
         this.radius = gameConstants.BALL_RADIUS;
         this.draw = function () {
-            gameConstants.CONTEXT.fillStyle = gameVariables.color;
             gameConstants.CONTEXT.beginPath();
             gameConstants.CONTEXT.arc(this.x, this.y, this.radius, gameConstants.BALL_START_ANGLE, gameConstants.BALL_END_ANGLE);
             gameConstants.CONTEXT.fill();

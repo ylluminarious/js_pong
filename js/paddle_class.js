@@ -9,7 +9,6 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
         this.velocity = gameConstants.STOPPED;
         this.score = gameVariables.score;
         this.draw = function () {
-            gameConstants.CONTEXT.fillStyle = gameVariables.color;
             gameConstants.CONTEXT.fillRect(this.x, this.y, this.width, this.height);
             gameConstants.CONTEXT.font = gameConstants.SCORE_FONT;
             gameConstants.CONTEXT.fillText(this.score, this.horizontalScorePos, this.verticalScorePos);

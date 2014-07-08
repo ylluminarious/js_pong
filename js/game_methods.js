@@ -16,6 +16,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
     var GameMethods = function (ball, rightPaddle, leftPaddle) {
         // Draws the objects of the game, and the text as well, but only in the victory scene.
         this.draw = function () {
+            gameConstants.CONTEXT.fillStyle = gameVariables.color;
             ball.draw();
             rightPaddle.draw();
             leftPaddle.draw();
