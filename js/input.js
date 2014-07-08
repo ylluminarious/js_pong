@@ -1,5 +1,5 @@
 define(["global_constants", "global_variables", "game_methods"], function (gameConstants, gameVariables, GameMethods) {
-    var Input = function (ball, rightPaddle, leftPaddle, intervalToClear) {
+    var Input = function (ball, rightPaddle, leftPaddle) {
         this.keyDown = function (input) {
             // IE code
             input = input || window.event;
