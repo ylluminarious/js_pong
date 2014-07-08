@@ -46,13 +46,13 @@ define(function () {
         POINTS_TO_WIN: 10,
         NO_POINTS: 0,
         
-        // Coordinate constants for the game mode instructions
+        // Position constants for the game mode instructions
         LEFT_BUTTON_INSTRUCTIONS_X_POS: 50,
         LEFT_BUTTON_INSTRUCTIONS_Y_POS: 90,
         RIGHT_BUTTON_INSTRUCTIONS_X_POS: 400,
         RIGHT_BUTTON_INSTRUCTIONS_Y_POS: 90,
         
-        // Coordinate constants for "Winner!" text
+        // Position constants for "Winner!" text
         RIGHT_WINNER_X_POS: 500,
         RIGHT_WINNER_Y_POS: 250,
         LEFT_WINNER_X_POS: 150,
