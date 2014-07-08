@@ -20,6 +20,9 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             ball.draw();
             rightPaddle.draw();
             leftPaddle.draw();
+            for (var y_pos = gameConstants.HALFWAY_LINE_Y_POS; y_pos < gameConstants.BOTTOM_WALL; y_pos += gameConstants.HALFWAY_LINE_STEPS) {
+                gameConstants.CONTEXT.fillRect(gameConstants.HALFWAY_LINE_X_POS, y_pos + gameConstants.HALFWAY_LINE_STEPS / 4, gameConstants.HALFWAY_LINE_WIDTH, gameConstants.HALFWAY_LINE_STEPS / 2);
+            }
             if (gameVariables.whichGame === "opening scene" || gameVariables.whichGame === "victory scene") {
                 this.writeText();
             }
@@ -113,7 +116,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
         };
         this.tick = function () {
             if (!gameVariables.paused) {
-                gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.FIELD.width, gameConstants.FIELD.height);
+                gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.RIGHT_WALL, gameConstants.BOTTOM_WALL);
                 this.update();
                 this.draw();
                 this.buttons();

@@ -1,11 +1,7 @@
 define(function () {
-    // Get the canvas element and store it in a variable.
-    var field = document.getElementById("field");
-    
     var gameConstants = {
         // Constants for getting the canvas prepared to be worked with
-        FIELD: field,
-        CONTEXT: field.getContext("2d"),
+        CONTEXT: document.getElementById("playing_field").getContext("2d"),
         
         // Constants for the game loop
         FPS: 60,
@@ -28,6 +24,12 @@ define(function () {
         // Width and height of the paddles
         PADDLE_WIDTH: 30,
         PADDLE_HEIGHT: 150,
+        
+        // Positions and dimensions of the halfway line
+        HALFWAY_LINE_WIDTH: 15,
+        HALFWAY_LINE_STEPS: document.getElementById("playing_field").height / 15,
+        HALFWAY_LINE_X_POS: (document.getElementById("playing_field").width - 15) / 2,
+        HALFWAY_LINE_Y_POS: 0,
         
         // Ball constants
         HORIZONTAL_CENTER_OF_FIELD: 350,
@@ -74,8 +76,8 @@ define(function () {
         // Constants for dimensions of the playing field
         ORIGIN: 0,
         TOP_WALL: 0,
-        BOTTOM_WALL: field.height,
-        RIGHT_WALL: field.width,
+        RIGHT_WALL: document.getElementById("playing_field").width,
+        BOTTOM_WALL: document.getElementById("playing_field").height,
         LEFT_WALL: 0,
         
         // Font constants
