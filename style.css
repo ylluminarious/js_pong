@@ -59,7 +59,7 @@ body {
 #restart_text {
     font-family: Courier;
 }
-#field {
+#playing_field {
     border-style: solid;
     border-color: white;
     background-color: black;
