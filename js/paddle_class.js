@@ -1,5 +1,6 @@
 define(["global_constants", "global_variables"], function (gameConstants, gameVariables) {
     var Paddle = function (xPos, yPos, horizontalScorePos, verticalScorePos, ball) {
+        // Set the paddle to the positions specified in the arguments, and make the paddle stopped in the beginning of a game.
         this.x = xPos;
         this.y = yPos;
         this.horizontalScorePos = horizontalScorePos;
@@ -8,11 +9,13 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
         this.height = gameConstants.PADDLE_HEIGHT;
         this.velocity = gameConstants.STOPPED;
         this.score = gameVariables.score;
+        // Draw the paddle with its score.
         this.draw = function () {
             gameConstants.CONTEXT.fillRect(this.x, this.y, this.width, this.height);
             gameConstants.CONTEXT.font = gameConstants.SCORE_FONT;
             gameConstants.CONTEXT.fillText(this.score, this.horizontalScorePos, this.verticalScorePos);
         };
+        // Method to update the paddle's position.
         this.updatePosition = function () {
             // If the ball is not stopped, update position.
             if (ball.horizontalVelocity !== gameConstants.STOPPED && ball.verticalVelocity !== gameConstants.STOPPED) {
@@ -26,6 +29,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 }
             }
         };
+        // Method to update the paddle's position when it's an AI.
         this.AIupdatePosition = function () {
             // -------------------- Start of AI code --------------------
             
