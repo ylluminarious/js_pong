@@ -29,7 +29,7 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
 
                 // If key pressed is up arrow, w, a, or ' (single quote) and the paddle is not touching the top wall...
                 if (key_code === gameConstants.UP_ARROW_CODE || key_code === gameConstants.W_CODE || key_code === gameConstants.A_CODE || key_code === gameConstants.SINGLE_QUOTE_CODE) {
-                    if (rightPaddle.y > gameConstants.TOP_WALL) {
+                    if (rightPaddle.yPos > gameConstants.TOP_WALL) {
                         // ... make the paddle go upwards.
                         rightPaddle.velocity = -gameConstants.RIGHT_PADDLE_VELOCITY;
                     }
@@ -37,7 +37,7 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
       
                 // If key pressed is down arrow, s, z, or / (forward slash) and the paddle is not touching the bottom wall...
                 if (key_code === gameConstants.DOWN_ARROW_CODE || key_code === gameConstants.S_CODE || key_code === gameConstants.Z_CODE || key_code === gameConstants.FORWARD_SLASH_CODE) {
-                    if ( (rightPaddle.y + rightPaddle.height) < gameConstants.BOTTOM_WALL ) {
+                    if ( (rightPaddle.yPos + rightPaddle.height) < gameConstants.BOTTOM_WALL ) {
                         // ... make the paddle go downwards.
                         rightPaddle.velocity = gameConstants.RIGHT_PADDLE_VELOCITY;
                     }
@@ -55,7 +55,7 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
 
                 // If key pressed is a and the left paddle is not touching the top wall...
                 if (key_code === gameConstants.A_CODE) {
-                    if (leftPaddle.y > gameConstants.TOP_WALL) {
+                    if (leftPaddle.yPos > gameConstants.TOP_WALL) {
                         // ... make the left paddle move upwards.
                         leftPaddle.velocity = -gameConstants.LEFT_PADDLE_VELOCITY;
                     }
@@ -63,7 +63,7 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
       
                 // If key pressed is z and the left paddle is not touching the bottom wall...
                 if (key_code === gameConstants.Z_CODE) {
-                    if ( (leftPaddle.y + leftPaddle.height) < gameConstants.BOTTOM_WALL ) {
+                    if ( (leftPaddle.yPos + leftPaddle.height) < gameConstants.BOTTOM_WALL ) {
                         // ... make the left paddle move downwards.
                         leftPaddle.velocity = gameConstants.LEFT_PADDLE_VELOCITY;
                     }
@@ -71,7 +71,7 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
       
                 // If key pressed is ' (single quote) and the right paddle is not touching the top wall...
                 if (key_code === gameConstants.SINGLE_QUOTE_CODE) {
-                    if (rightPaddle.y > gameConstants.TOP_WALL) {
+                    if (rightPaddle.yPos > gameConstants.TOP_WALL) {
                         // ... make the right paddle move upwards.
                         rightPaddle.velocity = -gameConstants.RIGHT_PADDLE_VELOCITY;
                     }
@@ -79,7 +79,7 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
       
                 // If key pressed is / (forward slash) and the right paddle is not touching the bottom wall...
                 if (key_code === gameConstants.FORWARD_SLASH_CODE) {
-                    if ( (rightPaddle.y + rightPaddle.height) < gameConstants.BOTTOM_WALL ) {
+                    if ( (rightPaddle.yPos + rightPaddle.height) < gameConstants.BOTTOM_WALL ) {
                         // ... make the right paddle move downwards.
                         rightPaddle.velocity = gameConstants.RIGHT_PADDLE_VELOCITY;
                     }

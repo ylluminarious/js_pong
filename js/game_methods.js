@@ -28,12 +28,12 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
             }
             if (rightPaddle.score === gameConstants.POINTS_TO_WIN || leftPaddle.score === gameConstants.POINTS_TO_WIN) {
                 gameVariables.whichGame = "victory scene";
-                ball.x = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
-                ball.y = gameConstants.VERTICAL_CENTER_OF_FIELD;
-                rightPaddle.x = gameConstants.RIGHT_PADDLE_X_POS;
-                rightPaddle.y = gameConstants.RIGHT_PADDLE_Y_POS;
-                leftPaddle.x = gameConstants.LEFT_PADDLE_X_POS;
-                leftPaddle.y = gameConstants.LEFT_PADDLE_Y_POS;
+                ball.xPos = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
+                ball.yPos = gameConstants.VERTICAL_CENTER_OF_FIELD;
+                rightPaddle.xPos = gameConstants.RIGHT_PADDLE_X_POS;
+                rightPaddle.yPos = gameConstants.RIGHT_PADDLE_Y_POS;
+                leftPaddle.xPos = gameConstants.LEFT_PADDLE_X_POS;
+                leftPaddle.yPos = gameConstants.LEFT_PADDLE_Y_POS;
                 ball.horizontalVelocity = gameConstants.STOPPED;
                 ball.verticalVelocity = gameConstants.STOPPED;
                 rightPaddle.velocity = gameConstants.STOPPED;
@@ -85,12 +85,12 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
                 if (gameVariables.whichGame !== "opening scene" && gameVariables.whichGame !== "victory scene") {
                     rightPaddle.score = gameConstants.NO_POINTS;
                     leftPaddle.score = gameConstants.NO_POINTS;
-                    ball.x = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
-                    ball.y = gameConstants.VERTICAL_CENTER_OF_FIELD;
-                    rightPaddle.x = gameConstants.RIGHT_PADDLE_X_POS;
-                    rightPaddle.y = gameConstants.RIGHT_PADDLE_Y_POS;
-                    leftPaddle.x = gameConstants.LEFT_PADDLE_X_POS;
-                    leftPaddle.y = gameConstants.LEFT_PADDLE_Y_POS;
+                    ball.xPos = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
+                    ball.yPos = gameConstants.VERTICAL_CENTER_OF_FIELD;
+                    rightPaddle.xPos = gameConstants.RIGHT_PADDLE_X_POS;
+                    rightPaddle.yPos = gameConstants.RIGHT_PADDLE_Y_POS;
+                    leftPaddle.xPos = gameConstants.LEFT_PADDLE_X_POS;
+                    leftPaddle.yPos = gameConstants.LEFT_PADDLE_Y_POS;
                     ball.horizontalVelocity = gameConstants.STOPPED;
                     ball.verticalVelocity = gameConstants.STOPPED;
                     rightPaddle.horizontalVelocity = gameConstants.STOPPED;
