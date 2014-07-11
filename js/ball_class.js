@@ -50,7 +50,6 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                     if (this.yPos < bottomOfRightPaddle) {
                         this.xPos = frontSideOfRightPaddle - gameConstants.BALL_RADIUS;
                         this.horizontalVelocity = -this.horizontalVelocity;
-                        console.log("test");
                     }
                 }
                 
@@ -78,7 +77,6 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                     if (this.yPos < bottomOfLeftPaddle) {
                         this.xPos = frontSideOfLeftPaddle + gameConstants.BALL_RADIUS;
                         this.horizontalVelocity = -this.horizontalVelocity;
-                        console.log("test");
                     }
                 }
                 
