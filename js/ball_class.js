@@ -46,54 +46,42 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             // Right paddle collison (when the ball goes past the front side of the paddle)
             if (rightSideOfBall > frontSideOfRightPaddle) {
                 // Front side collision
-                if (this.yPos > topOfRightPaddle) {
-                    if (this.yPos < bottomOfRightPaddle) {
-                        this.xPos = frontSideOfRightPaddle - gameConstants.BALL_RADIUS;
-                        this.horizontalVelocity = -this.horizontalVelocity;
-                    }
+                if (this.yPos > topOfRightPaddle && this.yPos < bottomOfRightPaddle) {
+                    this.xPos = frontSideOfRightPaddle - gameConstants.BALL_RADIUS;
+                    this.horizontalVelocity = -this.horizontalVelocity;
                 }
                 
                 // Top side collision
-                if (bottomOfBall > topOfRightPaddle) {
-                    if (bottomOfBall < bottomOfRightPaddle) {
-                        this.yPos = topOfRightPaddle - gameConstants.BALL_RADIUS;
-                        this.verticalVelocity = -this.verticalVelocity;
-                    }
+                if (bottomOfBall > topOfRightPaddle && this.yPos < topOfRightPaddle && bottomOfBall < bottomOfRightPaddle) {
+                    this.yPos = topOfRightPaddle - gameConstants.BALL_RADIUS;
+                    this.verticalVelocity = -this.verticalVelocity;
                 }
                 
                 // Bottom side collision
-                if (topOfBall < bottomOfRightPaddle) {
-                    if (topOfBall > topOfRightPaddle) {
-                        this.yPos = bottomOfRightPaddle + gameConstants.BALL_RADIUS;
-                        this.verticalVelocity = -this.verticalVelocity;
-                    }
+                if (topOfBall < bottomOfRightPaddle && this.yPos > bottomOfRightPaddle && topOfBall > topOfRightPaddle) {
+                    this.yPos = bottomOfRightPaddle + gameConstants.BALL_RADIUS;
+                    this.verticalVelocity = -this.verticalVelocity;
                 }
             }
             
             // Left paddle collision (when the ball goes past the front side of the paddle)
             if (leftSideOfBall < frontSideOfLeftPaddle) {
                 // Front side collision
-                if (this.yPos > topOfLeftPaddle) {
-                    if (this.yPos < bottomOfLeftPaddle) {
-                        this.xPos = frontSideOfLeftPaddle + gameConstants.BALL_RADIUS;
-                        this.horizontalVelocity = -this.horizontalVelocity;
-                    }
+                if (this.yPos > topOfLeftPaddle && this.yPos < bottomOfLeftPaddle) {
+                    this.xPos = frontSideOfLeftPaddle + gameConstants.BALL_RADIUS;
+                    this.horizontalVelocity = -this.horizontalVelocity;
                 }
                 
                 // Top side collision
-                if (bottomOfBall > topOfLeftPaddle) {
-                    if (bottomOfBall < bottomOfLeftPaddle) {
-                        this.yPos = topOfLeftPaddle - gameConstants.BALL_RADIUS;
-                        this.verticalVelocity = -this.verticalVelocity;
-                    }
+                if (bottomOfBall > topOfLeftPaddle && this.yPos < topOfLeftPaddle && bottomOfBall < bottomOfLeftPaddle) {
+                    this.yPos = topOfLeftPaddle - gameConstants.BALL_RADIUS;
+                    this.verticalVelocity = -this.verticalVelocity;
                 }
                 
                 // Bottom side collision
-                if (topOfBall < bottomOfLeftPaddle) {
-                    if (topOfBall > topOfLeftPaddle) {
-                        this.yPos = bottomOfLeftPaddle + gameConstants.BALL_RADIUS;
-                        this.verticalVelocity = -this.verticalVelocity;
-                    }
+                if (topOfBall < bottomOfLeftPaddle && this.yPos > bottomOfLeftPaddle && topOfBall > topOfLeftPaddle) {
+                    this.yPos = bottomOfLeftPaddle + gameConstants.BALL_RADIUS;
+                    this.verticalVelocity = -this.verticalVelocity;
                 }
             }
             
