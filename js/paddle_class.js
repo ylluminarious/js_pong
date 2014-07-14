@@ -56,7 +56,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                     this.velocity = gameConstants.STOPPED;
                 }
             
-                // If the paddle is touching the bottom wall and the ball's center is aboce the paddle's center...
+                // If the paddle is touching the bottom wall and the ball's center is above the paddle's center (again, so that the paddle will not stay stopped once the ball goes above it)...
                 if ( (this.yPos + this.height) > gameConstants.BOTTOM_WALL && ball.yPos > (this.yPos + this.height / 2) ) {
                     // ... stop the paddle.
                     this.velocity = gameConstants.STOPPED;
