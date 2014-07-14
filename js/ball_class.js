@@ -19,7 +19,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             
       // -------------------- Start of ball collision code --------------------
             
-      // Ball collision constants (these can't go into gameConstants because they use objects unknown to gameConstants, i.e., this, rightPaddle, leftPaddle, etc.)
+      // Ball collision constants (these can't go into gameConstants because they use objects unknown to gameConstants, i.e., this, rightPaddle and leftPaddle)
       const TOP_OF_BALL = this.yPos - gameConstants.BALL_RADIUS;
       const BOTTOM_OF_BALL = this.yPos + gameConstants.BALL_RADIUS;
       const RIGHT_SIDE_OF_BALL = this.xPos + gameConstants.BALL_RADIUS;
