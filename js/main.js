@@ -1,6 +1,6 @@
 require(["ball_class", "paddle_class", "global_constants", "game_methods", "input"], function (Ball, Paddle, gameConstants, GameMethods, Input) {
     // Game objects
-    var ball = new Ball(rightPaddle, leftPaddle);
+    var ball = new Ball();
     var rightPaddle = new Paddle(
         gameConstants.RIGHT_PADDLE_X_POS,
         gameConstants.RIGHT_PADDLE_Y_POS,
