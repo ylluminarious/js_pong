@@ -43,7 +43,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
         this.verticalVelocity = -this.verticalVelocity;
       }
             
-      // Right paddle collison (when the ball goes past the front side of the paddle)
+      // Right paddle collision (when the ball goes past the front side of the paddle)
       if (RIGHT_SIDE_OF_BALL > FRONT_SIDE_OF_RIGHT_PADDLE) {
         // Front side collision
         if (this.yPos > TOP_OF_RIGHT_PADDLE && this.yPos < BOTTOM_OF_RIGHT_PADDLE) {
