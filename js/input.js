@@ -10,10 +10,14 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
             
             // Opening scene input
             if (gameVariables.whichGame === "opening scene") {
+                // If key pressed is one or one on the numberpad...
                 if (key_code === gameConstants.ONE_CODE || key_code === gameConstants.ONE_NUMPAD_CODE) {
+                    // ... set the game mode to one player.
                     gameVariables.whichGame = "one player";
                 }
+                // If key pressed is two or two on the numberpad...
                 if (key_code === gameConstants.TWO_CODE || key_code === gameConstants.TWO_NUMPAD_CODE) {
+                    // ... set the game mode to two player.
                     gameVariables.whichGame = "two player";
                 }
             }
