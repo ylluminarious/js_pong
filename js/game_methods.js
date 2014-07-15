@@ -45,12 +45,12 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
             gameConstants.CONTEXT.fillStyle = "white";
             gameConstants.CONTEXT.font = gameConstants.TEXT_FONT;
             gameConstants.CONTEXT.fillText("Press \"1\" for single player",
-                gameConstants.LEFT_BUTTON_INSTRUCTIONS_X_POS,
-                gameConstants.LEFT_BUTTON_INSTRUCTIONS_Y_POS
+                gameConstants.SINGLE_PLAYER_BUTTON_INSTRUCTIONS_X_POS,
+                gameConstants.SINGLE_PLAYER_BUTTON_INSTRUCTIONS_Y_POS
             );
             gameConstants.CONTEXT.fillText("Press \"2\" for double player",
-                gameConstants.RIGHT_BUTTON_INSTRUCTIONS_X_POS,
-                gameConstants.RIGHT_BUTTON_INSTRUCTIONS_Y_POS
+                gameConstants.DOUBLE_PLAYER_BUTTON_INSTRUCTIONS_X_POS,
+                gameConstants.DOUBLE_PLAYER_BUTTON_INSTRUCTIONS_Y_POS
             );
             if (gameVariables.whichGame === "victory scene") {
                 if (rightPaddle.score === gameConstants.POINTS_TO_WIN) {
