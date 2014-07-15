@@ -1,12 +1,12 @@
 define(["global_constants", "global_variables", "game_methods"], function (gameConstants, gameVariables, GameMethods) {
     var Input = function (ball, rightPaddle, leftPaddle) {
-        this.keyDown = function (input) {
+        this.keyDown = function (inputEvent) {
             // IE code
-            input = input || window.event;
+            inputEvent = inputEvent || window.event;
             // Get the key code of the key that was pressed
-            var key_code = input.keyCode;
+            var key_code = inputEvent.keyCode;
             // Prevent the key's default actions
-            input.preventDefault();
+            inputEvent.preventDefault();
             
             // Opening scene input
             if (gameVariables.whichGame === "opening scene") {
@@ -104,11 +104,11 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
                 }
             }
         };
-        this.keyUp = function (input) {
+        this.keyUp = function (inputEvent) {
             // IE code
-            input = input || window.event;
+            inputEvent = inputEvent || window.event;
             // Get the key code of the key that was pressed
-            var key_code = input.keyCode;
+            var key_code = inputEvent.keyCode;
             
             // One-player keyup input
             if (gameVariables.whichGame === "one player") {
