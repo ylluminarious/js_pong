@@ -117,17 +117,17 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
             // IE code
             inputEvent = inputEvent || window.event;
             // Get the key code of the key that was pressed
-            var keyPressed = inputEvent.keyCode;
+            var keyReleased = inputEvent.keyCode;
             
             // One-player keyup input
             if (gameVariables.whichGame === "one player") {
                 // If any of the keys for going upwards are released...
-                if (keyPressed === gameConstants.UP_ARROW_CODE || keyPressed === gameConstants.W_CODE || keyPressed === gameConstants.A_CODE || keyPressed === gameConstants.SINGLE_QUOTE_CODE) {
+                if (keyReleased === gameConstants.UP_ARROW_CODE || keyReleased === gameConstants.W_CODE || keyReleased === gameConstants.A_CODE || keyReleased === gameConstants.SINGLE_QUOTE_CODE) {
                     // ... stop moving the paddle.
                     rightPaddle.velocity = gameConstants.STOPPED;
                 }
                 // If any of the keys for going downwards are released...
-                if (keyPressed === gameConstants.DOWN_ARROW_CODE || keyPressed === gameConstants.S_CODE || keyPressed === gameConstants.Z_CODE || keyPressed === gameConstants.FORWARD_SLASH_CODE) {
+                if (keyReleased === gameConstants.DOWN_ARROW_CODE || keyReleased === gameConstants.S_CODE || keyReleased === gameConstants.Z_CODE || keyReleased === gameConstants.FORWARD_SLASH_CODE) {
                     // ... stop moving the paddle.
                     rightPaddle.velocity = gameConstants.STOPPED;
                 }
@@ -136,25 +136,25 @@ define(["global_constants", "global_variables", "game_methods"], function (gameC
             // Two-player keyup input
             if (gameVariables.whichGame === "two player") {
                 // If a is released...
-                if (keyPressed === gameConstants.A_CODE) {
+                if (keyReleased === gameConstants.A_CODE) {
                     // ... stop the left paddle.
                     leftPaddle.velocity = gameConstants.STOPPED;
                 }
       
                 // If z is released...
-                if (keyPressed === gameConstants.Z_CODE) {
+                if (keyReleased === gameConstants.Z_CODE) {
                     // ... stop the left paddle.
                     leftPaddle.velocity = gameConstants.STOPPED;
                 }
       
                 // If ' (single quote) is released...
-                if (keyPressed === gameConstants.SINGLE_QUOTE_CODE) {
+                if (keyReleased === gameConstants.SINGLE_QUOTE_CODE) {
                     // ... stop the right paddle.
                     rightPaddle.velocity = gameConstants.STOPPED;
                 }
       
                 // If / (forward slash) is released...
-                if (keyPressed === gameConstants.FORWARD_SLASH_CODE) {
+                if (keyReleased === gameConstants.FORWARD_SLASH_CODE) {
                     // ... stop the right paddle.
                     rightPaddle.velocity = gameConstants.STOPPED;
                 }
