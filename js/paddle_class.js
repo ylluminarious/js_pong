@@ -51,7 +51,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 
                 // If the ball's center is below the paddle's center...
                 if ( ball.yPos > CENTER_OF_PADDLE ) {
-                    // ... make the paddle's go downwards.
+                    // ... make the paddle go downwards.
                     this.velocity = gameConstants.LEFT_PADDLE_VELOCITY;
                 }
             
