@@ -32,6 +32,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
         // Method to update the paddle's position when it's an AI.
         this.AIupdatePosition = function () {
             // -------------------- Start of AI code --------------------
+            
             // AI constants; these can't go into gameConstants because they use the this object, which is unknown to gameConstants.
             const CENTER_OF_PADDLE = this.yPos + this.height / 2;
             const BOTTOM_OF_PADDLE = this.yPos + this.height;
