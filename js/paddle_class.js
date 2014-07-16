@@ -23,7 +23,7 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 this.yPos += this.velocity / gameConstants.FPS;
                 
                 // If the paddle hits the top wall or the bottom wall... 
-                if ( this.yPos < gameConstants.TOP_WALL || (this.yPos + this.height) > gameConstants.BOTTOM_WALL ) {
+                if (this.yPos < gameConstants.TOP_WALL || (this.yPos + this.height) > gameConstants.BOTTOM_WALL) {
                     // ... stop the paddle.
                     this.velocity = gameConstants.STOPPED;
                 }
@@ -44,25 +44,25 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
                 this.yPos += this.velocity / gameConstants.FPS;
                 
                 // If the ball's center is above the paddle's center...
-                if ( ball.yPos < CENTER_OF_PADDLE ) {
+                if (ball.yPos < CENTER_OF_PADDLE) {
                     // ... make the paddle go upwards.
                     this.velocity = -gameConstants.LEFT_PADDLE_VELOCITY;
                 }
                 
                 // If the ball's center is below the paddle's center...
-                if ( ball.yPos > CENTER_OF_PADDLE ) {
+                if (ball.yPos > CENTER_OF_PADDLE) {
                     // ... make the paddle go downwards.
                     this.velocity = gameConstants.LEFT_PADDLE_VELOCITY;
                 }
             
                 // If the paddle is touching the top wall and the ball's center is above the paddle's center (so that the paddle will not stay stopped once the ball goes below it)...
-                if ( this.yPos < gameConstants.TOP_WALL && ball.yPos < CENTER_OF_PADDLE ) {
+                if (this.yPos < gameConstants.TOP_WALL && ball.yPos < CENTER_OF_PADDLE) {
                     // ... stop the paddle.
                     this.velocity = gameConstants.STOPPED;
                 }
             
                 // If the paddle is touching the bottom wall and the ball's center is above the paddle's center (again, so that the paddle will not stay stopped once the ball goes above it)...
-                if ( BOTTOM_OF_PADDLE > gameConstants.BOTTOM_WALL && ball.yPos > CENTER_OF_PADDLE ) {
+                if (BOTTOM_OF_PADDLE > gameConstants.BOTTOM_WALL && ball.yPos > CENTER_OF_PADDLE) {
                     // ... stop the paddle.
                     this.velocity = gameConstants.STOPPED;
                 }
