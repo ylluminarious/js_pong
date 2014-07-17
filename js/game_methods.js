@@ -7,7 +7,11 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
             rightPaddle.draw();
             leftPaddle.draw();
             for (var y_pos = gameConstants.HALFWAY_LINE_Y_POS; y_pos < gameConstants.BOTTOM_WALL; y_pos += gameConstants.HALFWAY_LINE_STEPS) {
-                gameConstants.CONTEXT.fillRect(gameConstants.HALFWAY_LINE_X_POS, y_pos + gameConstants.HALFWAY_LINE_STEPS / 4, gameConstants.HALFWAY_LINE_WIDTH, gameConstants.HALFWAY_LINE_STEPS / 2);
+                gameConstants.CONTEXT.fillRect(gameConstants.HALFWAY_LINE_X_POS,
+                    y_pos + gameConstants.HALFWAY_LINE_STEPS / 4,
+                    gameConstants.HALFWAY_LINE_WIDTH,
+                    gameConstants.HALFWAY_LINE_STEPS / 2
+                );
             }
             if (gameVariables.whichGame === "opening scene" || gameVariables.whichGame === "victory scene") {
                 this.writeText();
