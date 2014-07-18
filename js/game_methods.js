@@ -108,7 +108,6 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
                 gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.RIGHT_WALL, gameConstants.BOTTOM_WALL);
                 this.update();
                 this.draw();
-                this.buttons();
                 $("#game_mode").html(gameVariables.whichGame);
                 $("#right_player_score").html(rightPaddle.score);
                 $("#left_player_score").html(leftPaddle.score);
@@ -117,6 +116,7 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
                 gameVariables.color = "white";
             }
         };
+        this.buttons();
     };
     return GameMethods;
 });
