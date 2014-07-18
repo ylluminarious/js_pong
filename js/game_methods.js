@@ -97,10 +97,8 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
                     leftPaddle.yPos = gameConstants.LEFT_PADDLE_Y_POS;
                     ball.horizontalVelocity = gameConstants.STOPPED;
                     ball.verticalVelocity = gameConstants.STOPPED;
-                    rightPaddle.horizontalVelocity = gameConstants.STOPPED;
-                    rightPaddle.verticalVelocity = gameConstants.STOPPED;
-                    leftPaddle.horizontalVelocity = gameConstants.STOPPED;
-                    leftPaddle.verticalVelocity = gameConstants.STOPPED;
+                    rightPaddle.velocity = gameConstants.STOPPED;
+                    leftPaddle.velocity = gameConstants.STOPPED;
                 }
             });
         };
