@@ -84,7 +84,7 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
                     $("#pause_button").html("&#10074;&#10074;");
                 }
             });
-            // The restart button will set both players' points to 0 and reset all the game objects' positioins, as well as their velocities.
+            // The restart button will set both players' points to 0 and reset all the game objects' positions, as well as their velocities.
             $("#restart_button").click(function () {
                 if (gameVariables.whichGame !== "opening scene" && gameVariables.whichGame !== "victory scene") {
                     rightPaddle.score = gameConstants.NO_POINTS;
