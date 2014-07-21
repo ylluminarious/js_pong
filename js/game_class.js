@@ -1,5 +1,5 @@
 define(["global_constants", "global_variables", "click_toggle"], function (gameConstants, gameVariables, clickToggle) {
-    var GameMethods = function (ball, rightPaddle, leftPaddle) {
+    var Game = function (ball, rightPaddle, leftPaddle) {
         // Draws the objects of the game, the text of the victory and opening scenes, and the game's halfway line.
         this.draw = function () {
             gameConstants.CONTEXT.fillStyle = gameVariables.color;
@@ -118,5 +118,5 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
         };
         this.buttons();
     };
-    return GameMethods;
+    return Game;
 });
