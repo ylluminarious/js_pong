@@ -1,4 +1,4 @@
-require(["ball_class", "paddle_class", "global_constants", "game_methods", "input"], function (Ball, Paddle, gameConstants, GameMethods, Input) {
+require(["ball_class", "paddle_class", "global_constants", "game_class", "input"], function (Ball, Paddle, gameConstants, Game, Input) {
     // Game objects
     var ball = new Ball();
     var rightPaddle = new Paddle(
@@ -17,7 +17,7 @@ require(["ball_class", "paddle_class", "global_constants", "game_methods", "inpu
     );
     
     // New instances of GameMethods and Input.
-    var gameMethods = new GameMethods(ball, rightPaddle, leftPaddle);
+    var gameMethods = new Game(ball, rightPaddle, leftPaddle);
     var event = new Input(ball, rightPaddle, leftPaddle, gameInterval);
     
     // Interval that will make the game loop.
