@@ -1,4 +1,4 @@
-define(["global_constants", "global_variables"], function (gameConstants, gameVariables) {
+define(["global_constants"], function (gameConstants) {
     var Ball = function () {
         // Set the ball to the center of the field and make it stopped at the beginning.
         this.xPos = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
