@@ -71,17 +71,22 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
         // Method for the buttons of the game (uses jQuery to make them work).
         this.buttons = function () {
             // The play/pause button will toggle between clicks, changing the play symbol to pause symbol (and vice versa) and whether or not the game is paused.
-            $("#pause_button").clickToggle(function () {
+            function pause () {
                 if (gameVariables.whichGame !== "opening scene" && gameVariables.whichGame !== "victory scene") {
                     gameVariables.paused = true;
                     $("#pause_button").html("&#9658;");
                 }
-            }, function () {
+            }
+            
+            function play () {
                 if (gameVariables.whichGame !== "opening scene" && gameVariables.whichGame !== "victory scene") {
                     gameVariables.paused = false;
                     $("#pause_button").html("&#10074;&#10074;");
                 }
-            });
+            }
+            
+            $("#pause_button").clickToggle(pause, play);
+            
             // The restart button will set both players' points to 0 and reset all the game objects' positions, as well as their velocities.
             $("#restart_button").click(function () {
                 if (gameVariables.whichGame !== "opening scene" && gameVariables.whichGame !== "victory scene") {
