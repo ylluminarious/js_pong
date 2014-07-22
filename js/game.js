@@ -22,9 +22,7 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
             ball.updatePosition(rightPaddle, leftPaddle);
             rightPaddle.updatePosition();
             if (gameVariables.whichGame === "opening scene") {
-                ball.updatePosition(rightPaddle, leftPaddle);
-                rightPaddle.AIupdatePosition();
-                leftPaddle.AIupdatePosition();
+                // do nothing
             } else if (gameVariables.whichGame === "one player") {
                 leftPaddle.AIupdatePosition();
             } else if (gameVariables.whichGame === "two player") {
