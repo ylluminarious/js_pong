@@ -94,7 +94,7 @@ define(["global_constants"], function (gameConstants) {
                 // ... restart at the center of the field and mark a point for the left paddle.
                 this.xPos = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
                 this.yPos = gameConstants.VERTICAL_CENTER_OF_FIELD;
-                leftPaddle.score++;
+                leftPaddle.score += 1;
             }
             
             // When the ball goes past the left paddle...
@@ -102,7 +102,7 @@ define(["global_constants"], function (gameConstants) {
                 // ... restart at the center of the field and mark a point for the right paddle.
                 this.xPos = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
                 this.yPos = gameConstants.VERTICAL_CENTER_OF_FIELD;
-                rightPaddle.score++;
+                rightPaddle.score += 1;
             }
         };
     };
