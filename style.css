@@ -37,20 +37,17 @@ body {
     padding: 5px;
     cursor: default;
 }
-#pause_button {
+.button {
     cursor: pointer;
     border-style: solid;
     padding: 5px;
     border-width: 1px;
     border-radius: 5px;
+}
+#pause_button {
     display: inline-block;
 }
 #restart_button {
-    cursor: pointer;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    padding: 5px;
     float: right;
     font-size: 14px;
     margin-left: 10px;
