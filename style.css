@@ -24,7 +24,10 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 500px;
-    
+}
+hr {
+    color: black;
+    border: 1px solid;
 }
 #buttons_container {
     background-color: black;
