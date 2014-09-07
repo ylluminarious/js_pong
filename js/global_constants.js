@@ -25,9 +25,14 @@ define(function () {
         PADDLE_WIDTH: 30,
         PADDLE_HEIGHT: 150,
         
+        // The halves to divide the paddle by (this is used for collision)
+        HALVES: 2,
+        
         // Positions and dimensions of the halfway line
-        HALFWAY_LINE_WIDTH: 15,
         HALFWAY_LINE_STEPS: document.getElementById("playing_field").height / 15,
+        HOW_MUCH_TO_STRETCH_STEPS: (document.getElementById("playing_field").height / 15) / 4,
+        STEP_HEIGHT: (document.getElementById("playing_field").height / 15) / 2,
+        STEP_WIDTH: 15,
         HALFWAY_LINE_X_POS: (document.getElementById("playing_field").width - 15) / 2,
         HALFWAY_LINE_Y_POS: 0,
         
