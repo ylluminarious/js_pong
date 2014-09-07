@@ -1,5 +1,9 @@
 define(["global_constants", "global_variables", "click_toggle"], function (gameConstants, gameVariables, clickToggle) {
     var Game = function (ball, rightPaddle, leftPaddle) {
+        // This method will clear the game field before doing anything else in the game loop, so that previously drawn game objects are erased each frame.
+        this.clear = function () {
+            gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.RIGHT_WALL, gameConstants.BOTTOM_WALL);
+        };
         // Draws the objects of the game, the text of the victory and opening scenes, and the game's halfway line.
         this.draw = function () {
             gameConstants.CONTEXT.fillStyle = gameVariables.color;
@@ -115,6 +119,7 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
                 $("#right_player_score").html(rightPaddle.score);
                 $("#left_player_score").html(leftPaddle.score);
             }
+            this.clear();
             if (gameVariables.whichGame !== "opening scene") {
                 gameVariables.color = "white";
             }
