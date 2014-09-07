@@ -47,8 +47,9 @@ define(function () {
         // Velocity of stopped things is 0
         STOPPED: 0,
         
-        // 10 points to win
+        // Different amounts of points for different things
         POINTS_TO_WIN: 10,
+        ONE_POINT: 1,
         NO_POINTS: 0,
         
         // Position constants for the game mode instructions
