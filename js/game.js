@@ -23,27 +23,29 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
         };
         // Updates the positions of the game objects, and does so differently depending on which game scene is current. Also will reset all game objects in the victory scene.
         this.update = function () {
-            ball.updatePosition(rightPaddle, leftPaddle);
-            rightPaddle.updatePosition();
-            if (gameVariables.whichGame === "opening scene") {
-                // do nothing
-            } else if (gameVariables.whichGame === "one player") {
-                leftPaddle.AIupdatePosition();
-            } else if (gameVariables.whichGame === "two player") {
-                leftPaddle.updatePosition();
-            }
-            if (rightPaddle.score === gameConstants.POINTS_TO_WIN || leftPaddle.score === gameConstants.POINTS_TO_WIN) {
-                gameVariables.whichGame = "victory scene";
-                ball.xPos = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
-                ball.yPos = gameConstants.VERTICAL_CENTER_OF_FIELD;
-                rightPaddle.xPos = gameConstants.RIGHT_PADDLE_X_POS;
-                rightPaddle.yPos = gameConstants.RIGHT_PADDLE_Y_POS;
-                leftPaddle.xPos = gameConstants.LEFT_PADDLE_X_POS;
-                leftPaddle.yPos = gameConstants.LEFT_PADDLE_Y_POS;
-                ball.horizontalVelocity = gameConstants.STOPPED;
-                ball.verticalVelocity = gameConstants.STOPPED;
-                rightPaddle.velocity = gameConstants.STOPPED;
-                leftPaddle.velocity = gameConstants.STOPPED;
+            if (!gameVariables.paused) {
+                ball.updatePosition(rightPaddle, leftPaddle);
+                rightPaddle.updatePosition();
+                if (gameVariables.whichGame === "opening scene") {
+                    // do nothing
+                } else if (gameVariables.whichGame === "one player") {
+                    leftPaddle.AIupdatePosition();
+                } else if (gameVariables.whichGame === "two player") {
+                    leftPaddle.updatePosition();
+                }
+                if (rightPaddle.score === gameConstants.POINTS_TO_WIN || leftPaddle.score === gameConstants.POINTS_TO_WIN) {
+                    gameVariables.whichGame = "victory scene";
+                    ball.xPos = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
+                    ball.yPos = gameConstants.VERTICAL_CENTER_OF_FIELD;
+                    rightPaddle.xPos = gameConstants.RIGHT_PADDLE_X_POS;
+                    rightPaddle.yPos = gameConstants.RIGHT_PADDLE_Y_POS;
+                    leftPaddle.xPos = gameConstants.LEFT_PADDLE_X_POS;
+                    leftPaddle.yPos = gameConstants.LEFT_PADDLE_Y_POS;
+                    ball.horizontalVelocity = gameConstants.STOPPED;
+                    ball.verticalVelocity = gameConstants.STOPPED;
+                    rightPaddle.velocity = gameConstants.STOPPED;
+                    leftPaddle.velocity = gameConstants.STOPPED;
+                }
             }
         };
         // Method that writes the instructional text telling you how to pick which game you want. Also writes "Winner!" text in the victory scene.
@@ -93,7 +95,7 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
             
             // The restart button will set both players' points to 0 and reset all the game objects' positions, as well as their velocities.
             $("#restart_button").click(function () {
-                if (gameVariables.whichGame !== "opening scene" && gameVariables.whichGame !== "victory scene") {
+                if (gameVariables.whichGame !== "opening scene" && gameVariables.whichGame !== "victory scene" && !gameVariables.paused) {
                     rightPaddle.score = gameConstants.NO_POINTS;
                     leftPaddle.score = gameConstants.NO_POINTS;
                     ball.xPos = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
@@ -111,15 +113,12 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
         };
         // The tick method will be called on every tick of the game loop; it will run the steps of the game loop, check the buttons' conditions and update the stats bar.
         this.tick = function () {
-            if (!gameVariables.paused) {
-                gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.RIGHT_WALL, gameConstants.BOTTOM_WALL);
-                this.update();
-                this.draw();
-                $("#game_mode").html(gameVariables.whichGame);
-                $("#right_player_score").html(rightPaddle.score);
-                $("#left_player_score").html(leftPaddle.score);
-            }
             this.clear();
+            this.update();
+            this.draw();
+            $("#game_mode").html(gameVariables.whichGame);
+            $("#right_player_score").html(rightPaddle.score);
+            $("#left_player_score").html(leftPaddle.score);
             if (gameVariables.whichGame !== "opening scene") {
                 gameVariables.color = "white";
             }
