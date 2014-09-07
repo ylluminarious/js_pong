@@ -20,16 +20,16 @@ define(["global_constants"], function (gameConstants) {
             // -------------------- Start of ball collision code --------------------
             
             // Ball collision constants (these can't go into gameConstants because they use objects unknown to gameConstants, i.e., this, rightPaddle and leftPaddle)
-            const TOP_OF_BALL = this.yPos - gameConstants.BALL_RADIUS;
-            const BOTTOM_OF_BALL = this.yPos + gameConstants.BALL_RADIUS;
-            const RIGHT_SIDE_OF_BALL = this.xPos + gameConstants.BALL_RADIUS;
-            const LEFT_SIDE_OF_BALL = this.xPos - gameConstants.BALL_RADIUS;
-            const FRONT_SIDE_OF_RIGHT_PADDLE = rightPaddle.xPos;
-            const TOP_OF_RIGHT_PADDLE = rightPaddle.yPos;
-            const BOTTOM_OF_RIGHT_PADDLE = rightPaddle.yPos + rightPaddle.height;
-            const FRONT_SIDE_OF_LEFT_PADDLE = leftPaddle.xPos + leftPaddle.width;
-            const TOP_OF_LEFT_PADDLE = leftPaddle.yPos;
-            const BOTTOM_OF_LEFT_PADDLE = leftPaddle.yPos + leftPaddle.height;
+            var TOP_OF_BALL = this.yPos - gameConstants.BALL_RADIUS;
+            var BOTTOM_OF_BALL = this.yPos + gameConstants.BALL_RADIUS;
+            var RIGHT_SIDE_OF_BALL = this.xPos + gameConstants.BALL_RADIUS;
+            var LEFT_SIDE_OF_BALL = this.xPos - gameConstants.BALL_RADIUS;
+            var FRONT_SIDE_OF_RIGHT_PADDLE = rightPaddle.xPos;
+            var TOP_OF_RIGHT_PADDLE = rightPaddle.yPos;
+            var BOTTOM_OF_RIGHT_PADDLE = rightPaddle.yPos + rightPaddle.height;
+            var FRONT_SIDE_OF_LEFT_PADDLE = leftPaddle.xPos + leftPaddle.width;
+            var TOP_OF_LEFT_PADDLE = leftPaddle.yPos;
+            var BOTTOM_OF_LEFT_PADDLE = leftPaddle.yPos + leftPaddle.height;
             
             // Top wall collision
             if (TOP_OF_BALL < gameConstants.TOP_WALL) {

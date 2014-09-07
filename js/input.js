@@ -7,11 +7,11 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             var keyPressed = inputEvent.keyCode;
             // Prevent the key's default actions
             inputEvent.preventDefault();
-            // Paddle collision constants (these can't go into gameConstants because they use objects unknown to gameConstants: rightPaddle and leftPaddle)
-            const TOP_OF_RIGHT_PADDLE = rightPaddle.yPos;
-            const BOTTOM_OF_RIGHT_PADDLE = rightPaddle.yPos + rightPaddle.height;
-            const TOP_OF_LEFT_PADDLE = leftPaddle.yPos;
-            const BOTTOM_OF_LEFT_PADDLE = leftPaddle.yPos + leftPaddle.height;
+            // Paddle collision constants (these can't go into gameConstants because they use objects unknown to gameConstants: `rightPaddle` and `leftPaddle`)
+            var TOP_OF_RIGHT_PADDLE = rightPaddle.yPos;
+            var BOTTOM_OF_RIGHT_PADDLE = rightPaddle.yPos + rightPaddle.height;
+            var TOP_OF_LEFT_PADDLE = leftPaddle.yPos;
+            var BOTTOM_OF_LEFT_PADDLE = leftPaddle.yPos + leftPaddle.height;
             
             // Opening scene input
             if (gameVariables.whichGame === "opening scene") {

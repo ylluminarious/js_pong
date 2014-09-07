@@ -34,8 +34,8 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
             // -------------------- Start of AI code --------------------
             
             // AI constants; these can't go into gameConstants because they use the this object, which is unknown to gameConstants.
-            const CENTER_OF_PADDLE = this.yPos + this.height / 2;
-            const BOTTOM_OF_PADDLE = this.yPos + this.height;
+            var BOTTOM_OF_PADDLE = this.yPos + this.height;
+            var CENTER_OF_PADDLE = this.yPos + this.height / gameConstants.HALVES;
             
             
             // If the ball is not stopped, update position and look through the code for the AI.
