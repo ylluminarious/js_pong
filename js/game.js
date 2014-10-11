@@ -1,75 +1,73 @@
-define(["global_constants", "global_variables", "click_toggle"], function (gameConstants, gameVariables, clickToggle) {
+define(["global_constants", "global_variables", "click_toggle"], function (globalConstants, globalVariables, clickToggle) {
     var Game = function (ball, rightPaddle, leftPaddle) {
         // This method will clear the game field before doing anything else in the game loop, so that previously drawn game objects are erased each frame.
         this.clear = function () {
-            gameConstants.CONTEXT.clearRect(gameConstants.ORIGIN, gameConstants.ORIGIN, gameConstants.RIGHT_WALL, gameConstants.BOTTOM_WALL);
+            globalConstants.CONTEXT.clearRect(globalConstants.ORIGIN, globalConstants.ORIGIN, globalConstants.RIGHT_WALL, globalConstants.BOTTOM_WALL);
         };
         // Draws the objects of the game, the text of the victory and opening scenes, and the game's halfway line.
         this.draw = function () {
-            gameConstants.CONTEXT.fillStyle = gameVariables.color;
+            globalConstants.CONTEXT.fillStyle = globalVariables.color;
             ball.draw();
             rightPaddle.draw();
             leftPaddle.draw();
-            for (var y_pos = gameConstants.HALFWAY_LINE_Y_POS; y_pos < gameConstants.BOTTOM_WALL; y_pos += gameConstants.HALFWAY_LINE_STEPS) {
-                gameConstants.CONTEXT.fillRect(gameConstants.HALFWAY_LINE_X_POS,
-                    y_pos + gameConstants.HOW_MUCH_TO_STRETCH_STEPS,
-                    gameConstants.STEP_WIDTH,
-                    gameConstants.STEP_HEIGHT
+            for (var y_pos = globalConstants.HALFWAY_LINE_Y_POS; y_pos < globalConstants.BOTTOM_WALL; y_pos += globalConstants.HALFWAY_LINE_STEPS) {
+                globalConstants.CONTEXT.fillRect(globalConstants.HALFWAY_LINE_X_POS,
+                    y_pos + globalConstants.HOW_MUCH_TO_STRETCH_STEPS,
+                    globalConstants.STEP_WIDTH,
+                    globalConstants.STEP_HEIGHT
                 );
             }
-            if (gameVariables.whichGame === "opening scene" || gameVariables.whichGame === "victory scene") {
+            if (globalVariables.whichGame === "opening scene" || globalVariables.whichGame === "victory scene") {
                 this.writeText();
             }
         };
         // Updates the positions of the game objects, and does so differently depending on which game scene is current. Also will reset all game objects in the victory scene.
         this.update = function () {
-            if (!gameVariables.paused) {
+            if (!globalVariables.paused) {
                 ball.updatePosition(rightPaddle, leftPaddle);
                 rightPaddle.updatePosition();
-                if (gameVariables.whichGame === "opening scene") {
+                if (globalVariables.whichGame === "opening scene") {
                     // do nothing
-                } else if (gameVariables.whichGame === "one player") {
+                } else if (globalVariables.whichGame === "one player") {
                     leftPaddle.AIupdatePosition();
-                } else if (gameVariables.whichGame === "two player") {
+                } else if (globalVariables.whichGame === "two player") {
                     leftPaddle.updatePosition();
                 }
-                if (rightPaddle.score === gameConstants.POINTS_TO_WIN || leftPaddle.score === gameConstants.POINTS_TO_WIN) {
-                    gameVariables.whichGame = "victory scene";
-                    ball.xPos = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
-                    ball.yPos = gameConstants.VERTICAL_CENTER_OF_FIELD;
-                    rightPaddle.xPos = gameConstants.RIGHT_PADDLE_X_POS;
-                    rightPaddle.yPos = gameConstants.RIGHT_PADDLE_Y_POS;
-                    leftPaddle.xPos = gameConstants.LEFT_PADDLE_X_POS;
-                    leftPaddle.yPos = gameConstants.LEFT_PADDLE_Y_POS;
-                    ball.horizontalVelocity = gameConstants.STOPPED;
-                    ball.verticalVelocity = gameConstants.STOPPED;
-                    rightPaddle.velocity = gameConstants.STOPPED;
-                    leftPaddle.velocity = gameConstants.STOPPED;
+                if (rightPaddle.score === globalConstants.POINTS_TO_WIN || leftPaddle.score === globalConstants.POINTS_TO_WIN) {
+                    globalVariables.whichGame = "victory scene";
+                    ball.xPos = globalConstants.HORIZONTAL_CENTER_OF_FIELD;
+                    ball.yPos = globalConstants.VERTICAL_CENTER_OF_FIELD;
+                    rightPaddle.yPos = globalConstants.RIGHT_PADDLE_Y_POS;
+                    leftPaddle.yPos = globalConstants.LEFT_PADDLE_Y_POS;
+                    ball.horizontalVelocity = globalConstants.STOPPED;
+                    ball.verticalVelocity = globalConstants.STOPPED;
+                    rightPaddle.velocity = globalConstants.STOPPED;
+                    leftPaddle.velocity = globalConstants.STOPPED;
                 }
             }
         };
         // Method that writes the instructional text telling you how to pick which game you want. Also writes "Winner!" text in the victory scene.
         this.writeText = function () {
-            gameConstants.CONTEXT.fillStyle = "white";
-            gameConstants.CONTEXT.font = gameConstants.TEXT_FONT;
-            gameConstants.CONTEXT.fillText("Press \"1\" for single player",
-                gameConstants.SINGLE_PLAYER_BUTTON_INSTRUCTIONS_X_POS,
-                gameConstants.SINGLE_PLAYER_BUTTON_INSTRUCTIONS_Y_POS
+            globalConstants.CONTEXT.fillStyle = "white";
+            globalConstants.CONTEXT.font = globalConstants.TEXT_FONT;
+            globalConstants.CONTEXT.fillText("Press \"1\" for single player",
+                globalConstants.SINGLE_PLAYER_BUTTON_INSTRUCTIONS_X_POS,
+                globalConstants.SINGLE_PLAYER_BUTTON_INSTRUCTIONS_Y_POS
             );
-            gameConstants.CONTEXT.fillText("Press \"2\" for double player",
-                gameConstants.DOUBLE_PLAYER_BUTTON_INSTRUCTIONS_X_POS,
-                gameConstants.DOUBLE_PLAYER_BUTTON_INSTRUCTIONS_Y_POS
+            globalConstants.CONTEXT.fillText("Press \"2\" for double player",
+                globalConstants.DOUBLE_PLAYER_BUTTON_INSTRUCTIONS_X_POS,
+                globalConstants.DOUBLE_PLAYER_BUTTON_INSTRUCTIONS_Y_POS
             );
-            if (gameVariables.whichGame === "victory scene") {
-                if (rightPaddle.score === gameConstants.POINTS_TO_WIN) {
-                    gameConstants.CONTEXT.fillText("Winner!",
-                    gameConstants.RIGHT_WINNER_X_POS,
-                    gameConstants.RIGHT_WINNER_Y_POS
+            if (globalVariables.whichGame === "victory scene") {
+                if (rightPaddle.score === globalConstants.POINTS_TO_WIN) {
+                    globalConstants.CONTEXT.fillText("Winner!",
+                    globalConstants.RIGHT_WINNER_X_POS,
+                    globalConstants.RIGHT_WINNER_Y_POS
                 );
-                } else if (leftPaddle.score === gameConstants.POINTS_TO_WIN) {
-                    gameConstants.CONTEXT.fillText("Winner!",
-                    gameConstants.LEFT_WINNER_X_POS,
-                    gameConstants.LEFT_WINNER_Y_POS
+                } else if (leftPaddle.score === globalConstants.POINTS_TO_WIN) {
+                    globalConstants.CONTEXT.fillText("Winner!",
+                    globalConstants.LEFT_WINNER_X_POS,
+                    globalConstants.LEFT_WINNER_Y_POS
                 );
                 }
             }
@@ -78,15 +76,15 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
         this.buttons = function () {
             // The play/pause button will toggle between clicks, changing the play symbol to pause symbol (and vice versa) and whether or not the game is paused.
             function pause () {
-                if (gameVariables.whichGame !== "opening scene" && gameVariables.whichGame !== "victory scene") {
-                    gameVariables.paused = true;
+                if (globalVariables.whichGame !== "opening scene" && globalVariables.whichGame !== "victory scene") {
+                    globalVariables.paused = true;
                     $("#pause_button").html("&#9658;");
                 }
             }
             
             function play () {
-                if (gameVariables.whichGame !== "opening scene" && gameVariables.whichGame !== "victory scene") {
-                    gameVariables.paused = false;
+                if (globalVariables.whichGame !== "opening scene" && globalVariables.whichGame !== "victory scene") {
+                    globalVariables.paused = false;
                     $("#pause_button").html("&#10074;&#10074;");
                 }
             }
@@ -95,19 +93,17 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
             
             // The restart button will set both players' points to 0 and reset all the game objects' positions, as well as their velocities.
             $("#restart_button").click(function () {
-                if (gameVariables.whichGame !== "opening scene" && gameVariables.whichGame !== "victory scene" && !gameVariables.paused) {
-                    rightPaddle.score = gameConstants.NO_POINTS;
-                    leftPaddle.score = gameConstants.NO_POINTS;
-                    ball.xPos = gameConstants.HORIZONTAL_CENTER_OF_FIELD;
-                    ball.yPos = gameConstants.VERTICAL_CENTER_OF_FIELD;
-                    rightPaddle.xPos = gameConstants.RIGHT_PADDLE_X_POS;
-                    rightPaddle.yPos = gameConstants.RIGHT_PADDLE_Y_POS;
-                    leftPaddle.xPos = gameConstants.LEFT_PADDLE_X_POS;
-                    leftPaddle.yPos = gameConstants.LEFT_PADDLE_Y_POS;
-                    ball.horizontalVelocity = gameConstants.STOPPED;
-                    ball.verticalVelocity = gameConstants.STOPPED;
-                    rightPaddle.velocity = gameConstants.STOPPED;
-                    leftPaddle.velocity = gameConstants.STOPPED;
+                if (globalVariables.whichGame !== "opening scene" && globalVariables.whichGame !== "victory scene" && !globalVariables.paused) {
+                    rightPaddle.score = globalConstants.NO_POINTS;
+                    leftPaddle.score = globalConstants.NO_POINTS;
+                    ball.xPos = globalConstants.HORIZONTAL_CENTER_OF_FIELD;
+                    ball.yPos = globalConstants.VERTICAL_CENTER_OF_FIELD;
+                    rightPaddle.yPos = globalConstants.RIGHT_PADDLE_Y_POS;
+                    leftPaddle.yPos = globalConstants.LEFT_PADDLE_Y_POS;
+                    ball.horizontalVelocity = globalConstants.STOPPED;
+                    ball.verticalVelocity = globalConstants.STOPPED;
+                    rightPaddle.velocity = globalConstants.STOPPED;
+                    leftPaddle.velocity = globalConstants.STOPPED;
                 }
             });
         };
@@ -116,11 +112,11 @@ define(["global_constants", "global_variables", "click_toggle"], function (gameC
             this.clear();
             this.update();
             this.draw();
-            $("#game_mode").html(gameVariables.whichGame);
+            $("#game_mode").html(globalVariables.whichGame);
             $("#right_player_score").html(rightPaddle.score);
             $("#left_player_score").html(leftPaddle.score);
-            if (gameVariables.whichGame !== "opening scene") {
-                gameVariables.color = "white";
+            if (globalVariables.whichGame !== "opening scene") {
+                globalVariables.color = "white";
             }
         };
         this.buttons();

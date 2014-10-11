@@ -1,31 +1,31 @@
-define(["global_constants", "global_variables"], function (gameConstants, gameVariables) {
+define(["global_constants", "global_variables"], function (globalConstants, globalVariables) {
     var Paddle = function (xPos, yPos, horizontalScorePos, verticalScorePos, ball) {
         // Set the paddle to the positions specified in the arguments, and make the paddle stopped in the beginning of a game.
         this.xPos = xPos;
         this.yPos = yPos;
         this.horizontalScorePos = horizontalScorePos;
         this.verticalScorePos = verticalScorePos;
-        this.width = gameConstants.PADDLE_WIDTH;
-        this.height = gameConstants.PADDLE_HEIGHT;
-        this.velocity = gameConstants.STOPPED;
-        this.score = gameVariables.score;
+        this.width = globalConstants.PADDLE_WIDTH;
+        this.height = globalConstants.PADDLE_HEIGHT;
+        this.velocity = globalConstants.STOPPED;
+        this.score = globalVariables.score;
         // Draw the paddle with its score.
         this.draw = function () {
-            gameConstants.CONTEXT.fillRect(this.xPos, this.yPos, this.width, this.height);
-            gameConstants.CONTEXT.font = gameConstants.SCORE_FONT;
-            gameConstants.CONTEXT.fillText(this.score, this.horizontalScorePos, this.verticalScorePos);
+            globalConstants.CONTEXT.fillRect(this.xPos, this.yPos, this.width, this.height);
+            globalConstants.CONTEXT.font = globalConstants.SCORE_FONT;
+            globalConstants.CONTEXT.fillText(this.score, this.horizontalScorePos, this.verticalScorePos);
         };
         // Method to update the paddle's position.
         this.updatePosition = function () {
             // If the ball is not stopped, update position.
-            if (ball.horizontalVelocity !== gameConstants.STOPPED && ball.verticalVelocity !== gameConstants.STOPPED) {
+            if (ball.horizontalVelocity !== globalConstants.STOPPED && ball.verticalVelocity !== globalConstants.STOPPED) {
                 // Update position.
-                this.yPos += this.velocity / gameConstants.FPS;
+                this.yPos += this.velocity / globalConstants.FPS;
                 
                 // If the paddle hits the top wall or the bottom wall... 
-                if (this.yPos < gameConstants.TOP_WALL || (this.yPos + this.height) > gameConstants.BOTTOM_WALL) {
+                if (this.yPos < globalConstants.TOP_WALL || (this.yPos + this.height) > globalConstants.BOTTOM_WALL) {
                     // ... stop the paddle.
-                    this.velocity = gameConstants.STOPPED;
+                    this.velocity = globalConstants.STOPPED;
                 }
             }
         };
@@ -33,38 +33,38 @@ define(["global_constants", "global_variables"], function (gameConstants, gameVa
         this.AIupdatePosition = function () {
             // -------------------- Start of AI code --------------------
             
-            // AI constants; these can't go into gameConstants because they use the this object, which is unknown to gameConstants.
+            // AI constants; these can't go into globalConstants because they use the this object, which is unknown to globalConstants.
             var BOTTOM_OF_PADDLE = this.yPos + this.height;
-            var CENTER_OF_PADDLE = this.yPos + this.height / gameConstants.HALVES;
+            var CENTER_OF_PADDLE = this.yPos + this.height / globalConstants.HALVES;
             
             
             // If the ball is not stopped, update position and look through the code for the AI.
-            if (ball.horizontalVelocity !== gameConstants.STOPPED && ball.verticalVelocity !== gameConstants.STOPPED) {
+            if (ball.horizontalVelocity !== globalConstants.STOPPED && ball.verticalVelocity !== globalConstants.STOPPED) {
                 // Update position.
-                this.yPos += this.velocity / gameConstants.FPS;
+                this.yPos += this.velocity / globalConstants.FPS;
                 
                 // If the ball's center is above the paddle's center...
                 if (ball.yPos < CENTER_OF_PADDLE) {
                     // ... make the paddle go upwards.
-                    this.velocity = -gameConstants.LEFT_PADDLE_VELOCITY;
+                    this.velocity = -globalConstants.LEFT_PADDLE_VELOCITY;
                 }
                 
                 // If the ball's center is below the paddle's center...
                 if (ball.yPos > CENTER_OF_PADDLE) {
                     // ... make the paddle go downwards.
-                    this.velocity = gameConstants.LEFT_PADDLE_VELOCITY;
+                    this.velocity = globalConstants.LEFT_PADDLE_VELOCITY;
                 }
             
                 // If the paddle is touching the top wall and the ball's center is above the paddle's center (so that the paddle will not stay stopped once the ball goes below it)...
-                if (this.yPos < gameConstants.TOP_WALL && ball.yPos < CENTER_OF_PADDLE) {
+                if (this.yPos < globalConstants.TOP_WALL && ball.yPos < CENTER_OF_PADDLE) {
                     // ... stop the paddle.
-                    this.velocity = gameConstants.STOPPED;
+                    this.velocity = globalConstants.STOPPED;
                 }
             
                 // If the paddle is touching the bottom wall and the ball's center is above the paddle's center (again, so that the paddle will not stay stopped once the ball goes above it)...
-                if (BOTTOM_OF_PADDLE > gameConstants.BOTTOM_WALL && ball.yPos > CENTER_OF_PADDLE) {
+                if (BOTTOM_OF_PADDLE > globalConstants.BOTTOM_WALL && ball.yPos > CENTER_OF_PADDLE) {
                     // ... stop the paddle.
-                    this.velocity = gameConstants.STOPPED;
+                    this.velocity = globalConstants.STOPPED;
                 }
             }
             

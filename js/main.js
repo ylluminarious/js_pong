@@ -1,18 +1,18 @@
-require(["ball", "paddle", "global_constants", "game", "input"], function (Ball, Paddle, gameConstants, Game, Input) {
+require(["ball", "paddle", "global_constants", "game", "input"], function (Ball, Paddle, globalConstants, Game, Input) {
     // Game objects
     var ball = new Ball();
     var rightPaddle = new Paddle(
-        gameConstants.RIGHT_PADDLE_X_POS,
-        gameConstants.RIGHT_PADDLE_Y_POS,
-        gameConstants.RIGHT_HORIZONTAL_SCORE_POS,
-        gameConstants.RIGHT_VERTICAL_SCORE_POS,
+        globalConstants.RIGHT_PADDLE_X_POS,
+        globalConstants.RIGHT_PADDLE_Y_POS,
+        globalConstants.RIGHT_HORIZONTAL_SCORE_POS,
+        globalConstants.RIGHT_VERTICAL_SCORE_POS,
         ball
     );
     var leftPaddle = new Paddle(
-        gameConstants.LEFT_PADDLE_X_POS,
-        gameConstants.LEFT_PADDLE_Y_POS,
-        gameConstants.LEFT_HORIZONTAL_SCORE_POS,
-        gameConstants.LEFT_VERTICAL_SCORE_POS,
+        globalConstants.LEFT_PADDLE_X_POS,
+        globalConstants.LEFT_PADDLE_Y_POS,
+        globalConstants.LEFT_HORIZONTAL_SCORE_POS,
+        globalConstants.LEFT_VERTICAL_SCORE_POS,
         ball
     );
     
@@ -21,7 +21,7 @@ require(["ball", "paddle", "global_constants", "game", "input"], function (Ball,
     var event = new Input(ball, rightPaddle, leftPaddle, gameInterval);
     
     // Interval that will make the game loop.
-    var gameInterval = setInterval(gameTick, gameConstants.MILLESECONDS / gameConstants.FPS);
+    var gameInterval = setInterval(gameTick, globalConstants.MILLESECONDS / globalConstants.FPS);
     
     // Keyboard events will run methods from the Input class.
     window.onkeydown = function (inputEvent) {

@@ -1,5 +1,5 @@
 define(function () {
-    var gameVariables = {
+    var globalVariables = {
         // Game is not paused when it starts
         paused: false,
         
@@ -12,5 +12,5 @@ define(function () {
         // Both players start out with a score of 0
         score: 0
     };
-    return gameVariables;
+    return globalVariables;
 });

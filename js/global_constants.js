@@ -1,5 +1,5 @@
 define(function () {
-    var gameConstants = {
+    var globalConstants = {
         // Constants for getting the canvas prepared to be worked with
         CONTEXT: document.getElementById("playing_field").getContext("2d"),
         
@@ -90,5 +90,5 @@ define(function () {
         TEXT_FONT: "15px Courier",
         SCORE_FONT: "50px Courier"
     };
-    return gameConstants;
+    return globalConstants;
 });
