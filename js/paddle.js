@@ -10,7 +10,6 @@ define(["global_constants", "global_variables"], function (globalConstants, glob
         this.velocity = globalConstants.STOPPED;
         this.score = globalVariables.score;
         this.ball = ball;
-        
         // Draw the paddle with its score.
         this.draw = function () {
             globalConstants.CONTEXT.fillRect(this.xPos, this.yPos, this.width, this.height);
