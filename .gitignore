@@ -1,4 +1,3 @@
-
-# Ignore Code Kit stuff
 *.codekit
 min
+*.cfg
